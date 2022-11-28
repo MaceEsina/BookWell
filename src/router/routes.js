@@ -1,6 +1,16 @@
 export default [
   {
     path: '/',
+    name: 'Start',
+    component: () => import('@/views/Start.vue')
+  },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: () => import('@/views/Login.vue')
+  // },
+  {
+    path: '/home',
     name: 'Home',
     component: () => import('@/views/Home.vue')
   },
