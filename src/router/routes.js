@@ -4,11 +4,16 @@ export default [
     name: 'Start',
     component: () => import('@/views/Start.vue')
   },
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () => import('@/views/Login.vue')
-  // },
+  {
+    path: '/signin',
+    name: 'SignIn',
+    component: () => import('@/views/SignIn.vue')
+  },
+  {
+    path: '/signup',
+    name: 'SignUp',
+    component: () => import('@/views/SignUp.vue')
+  },
   {
     path: '/home',
     name: 'Home',
