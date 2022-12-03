@@ -15,7 +15,7 @@
         </b-button>
         <p>
           Already on wellbeing?
-          <b-link href="/sigin">Sign in</b-link>
+          <b-link href="/signin">Sign in</b-link>
         </p>
       </div>
     </div>
@@ -23,9 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
-const DEPLOY_ID = 'AKfycbwwsr8sF6KlD8gZpgDHi6nWy7HTCvxbyhVhjmWqv0amUfBxhwC2fu5OF4GFYhnlIxfDag'
+import { getStart } from '@/api'
 
 export default {
   name: "Start",
@@ -33,7 +31,6 @@ export default {
     return {
       user: null,
       isLoading: true,
-      api: `https://script.google.com/macros/s/${DEPLOY_ID}/exec`
     }
   },
   methods: {
@@ -44,7 +41,7 @@ export default {
       this.$router.push({ name: "SignUp" })
     },
     auth(session) {      
-      axios.get(`${this.api}?session=${session}`)
+      getStart(session)
       .then(({ data }) => {
         const { user } = data
         if (user) {

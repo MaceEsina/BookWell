@@ -4,10 +4,12 @@
 @import "resets";
 @import "misc";
 
-@import "./pages/start";
 @import "./components/app";
 @import "./components/hotel-card";
 @import "./components/cutom-radio";
 @import "./components/like-btn";
+
+@import "./pages/start";
+@import "./pages/signin";
 
 @import 'bootstrap/scss/bootstrap'
