@@ -1,5 +1,9 @@
+$main-blue: #3389EE;
+$small-width: 380px;
+$tablet-width: 768px;
+
 $theme-colors: (
-  "primary": #3389EE,
+  "primary": $main-blue,
 );
 $colors: (
     "pink": #ceada9,

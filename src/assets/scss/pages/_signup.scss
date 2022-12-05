@@ -1,4 +1,4 @@
-.signin-page {
+.signup-page {
   min-height: 100vh;
   height: 100vh;
   display: flex;
@@ -31,6 +31,10 @@
 
     .form-group {
       margin-bottom: 1rem;
+
+      input + input {
+        margin-top: 1rem;
+      }
     }
 
     label {
@@ -46,7 +50,7 @@
     }
   }
 
-  .signup {
+  .signin {
     margin-top: 1rem;
     text-align: center;
   }
@@ -67,17 +71,18 @@
 
     form {
       padding: 2.5rem;
-
+      
       .form-group {
         margin-bottom: 1.5rem;
+
       }
 
       button {
         margin-top: 1.5rem;
       }
     }
-
-    .signup {
+    
+    .signin {
       margin-top: 1.5rem;
     }
   }

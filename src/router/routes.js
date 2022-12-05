@@ -15,6 +15,11 @@ export default [
     component: () => import('@/views/SignUp.vue')
   },
   {
+    path: '/password-recovery',
+    name: 'PasswordRecovery',
+    component: () => import('@/views/PasswordRecovery.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import('@/views/Home.vue')

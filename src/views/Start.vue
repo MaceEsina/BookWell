@@ -15,7 +15,7 @@
         </b-button>
         <p>
           Already on wellbeing?
-          <b-link href="/signin">Sign in</b-link>
+          <b-link href="/signin">Sign In</b-link>
         </p>
       </div>
     </div>
@@ -45,10 +45,10 @@ export default {
       .then(({ data }) => {
         const { user } = data
         if (user) {
-          this.$router.push({
-            name: "Home",
-            params: { user }
-          })
+          // this.$router.push({
+          //   name: "Home",
+          //   params: { user }
+          // })
         }
         this.isLoading = false
       })
