@@ -13,6 +13,9 @@
         <b-button block pill variant="primary" @click="signUp">
           Create an account
         </b-button>
+        <b-button block pill variant="secondary" @click="goHome">
+          Continue as Guest
+        </b-button>
         <p>
           Already on wellbeing?
           <b-link href="/signin">Sign In</b-link>
@@ -40,15 +43,18 @@ export default {
     signUp() {
       this.$router.push({ name: "SignUp" })
     },
+    goHome() {
+      this.$router.push({ name: "Home" })
+    },
     auth(session) {      
       getStart(session)
       .then(({ data }) => {
         const { user } = data
         if (user) {
-          // this.$router.push({
-          //   name: "Home",
-          //   params: { user }
-          // })
+          this.$router.push({
+            name: "Home",
+            params: { user }
+          })
         }
         this.isLoading = false
       })
