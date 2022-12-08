@@ -25,6 +25,11 @@ export default [
     component: () => import('@/views/Home.vue')
   },
   {
+    path: '/user',
+    name: 'User',
+    component: () => import('@/views/User.vue')
+  },
+  {
     path: '/hotel/:id?',
     name: 'Hotel',
     component: () => import('@/views/Hotel.vue')

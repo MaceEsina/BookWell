@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import { store } from './store'
 import { BootstrapVue } from 'bootstrap-vue'
 import Vuelidate from 'vuelidate'
 import axios from 'axios'
@@ -42,6 +43,7 @@ Vue.filter("parseDate", (val) => {
 })
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')

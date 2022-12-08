@@ -5,7 +5,7 @@
     "location": {
       "country": "Thailand",
       "city": "Ko Pha-Ngan",
-      "addr": "22/7 Moo 5 Santhiya Koh Phangan Resort & Spa, 84280"
+      "addr": "22/7 Moo 5 Santhiya Resort & Spa, 84280"
     },
     "phone": "065465165",
     "email": "santhiya@gmail.com",
@@ -18,7 +18,8 @@
         "id": 1,
         "duration": "90 min",
         "tags": ["massage"],
-        "img": ["1.jpg"],
+        "img": "1.jpg",
+        "rating": 5,
         "desc": "Oil Massage is massage to relax with oil  into the  body.  After completed it will feel relaxing and improve blood circulation."
       },
       {
@@ -27,14 +28,16 @@
         "id": 2,
         "duration": "60 min",
         "tags": ["massage"],
-        "img": ["2.jpg"],
+        "img": "2.jpg",
+        "rating": 5,
         "desc": "A combination of pressure point massage and yoga stretching, if you’re looking for treating back or shoulder pain, a stiff neck or muscle strain from exercise. This is a great choice!"      },
       {
         "name": "Aromatherapy massage",
         "price": 500,
         "id": 3,
         "duration": "120 min",
-        "img": ["3.jpg"],
+        "img": "3.jpg",
+        "rating": 5,
         "tags": ["massage", "spa", "aromatherapy"],
         "desc": "Aromatherapy massage combines the power of essential oils with massage therapy, benefitting both the mind and the body."
       }
@@ -44,19 +47,19 @@
     "img": ["1.jpg", "2.jpg", "3.jpg"],
     "reviews": [
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Karolina J.",
         "date": "August 25, 2022",
         "message": "The best massage I ever had in my life. Great atmosphere best care. Words cannot describe. Must in koh phangen"
       },
       {
-        "rate": 4,
+        "rating": 4,
         "user": "Robinsy",
         "date": "July 16, 2022",
         "message": "We booked a couples massage whilst staying at Santhiya. We were welcomed and shown to the room. The room was beautifully set out. We both enjoyed an aroma massage. Both masseuse were amazing. The massage was just what was needed and came away very relaxed"
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Zane Diamond",
         "date": "May 30, 2022",
         "message": "The spa is in beautiful location, you can hear the sea and its waves crashing to the shore. A lot of lush plants around to admire after the massage drinking tea. Aromatherapy massage was wonderful and perfectly adjusted to individual needs. Definitely coming back. 🌸"
@@ -82,7 +85,8 @@
         "id": 1,
         "duration": "4 weeks",
         "tags": ["yoga", "workshop"],
-        "img": ["2.jpg"],
+        "img": "2.jpg",
+        "rating": 5,
         "desc": "We offer a 4 weeks all year around Yoga program for Awakening & Healing"
       },
       {
@@ -91,15 +95,17 @@
         "id": 2,
         "duration": "8 weeks",
         "tags": ["yoga", "workshop"],
-        "img": ["3.jpg"],
+        "img": "3.jpg",
+        "rating": 5,
         "desc": "We offer a 8 weeks all year around Yoga program for Awakening & Healing"
       },
       {
         "name": "Dance Meditation Therapy",
         "price": 2200,
         "duration": "2 days",
-        "img": ["5.jpg"],
+        "img": "5.jpg",
         "id": 3,
+        "rating": 4,
         "tags": ["dance", "meditation"],
         "desc": "Dance Meditation Therapy is a unique system developed in Samma Karuna by Ishi. Intensely lived moments through music and expression are the heart of this dance therapy course. Every session have a profound capacity to transform us and connect us with life."
       },
@@ -108,7 +114,8 @@
         "price": 5900,
         "id": 4,
         "duration": "6 hours",
-        "img": ["4.jpg"],
+        "img": "4.jpg",
+        "rating": 4,
         "tags": ["workshop", "reiki"],
         "desc": "You will learn how to awaken your consciousness, calm your mind and open your heart for the Reiki energy to flow through you. Reiki is a beautiful art of healing that offers beneficial, calming, balancing and stress-reducing effects."
       }
@@ -118,13 +125,13 @@
     "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
     "reviews": [
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Hollie D",
         "date": "October 27, 2022",
         "message": "I took the yoga TT in October. The yoga course itself was awesome, great location and the teachers/fellow students really made it special."
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Nathalie C",
         "date": "June 17, 2022",
         "message": "I had the most Beautiful experience at Samma, i did my Teacher training and completly Love it. Very profetional teachers. The food, the place, the people :) just fantastic ❤️"
@@ -150,7 +157,8 @@
         "price": 300,
         "duration": "1:30",
         "tags": ["yoga"],
-        "img": ["1.jpg"],
+        "img": "1.jpg",
+        "rating": 5,
         "desc": "A set of willful and active practices that aim to achieve harmony and balance in the mind, body, and spirit"
       },
       {
@@ -159,7 +167,8 @@
         "price": 300,
         "duration": "1:30",
         "tags": ["yoga"],
-        "img": ["5.jpg"],
+        "img": "5.jpg",
+        "rating": 4,
         "desc": "Yin yoga is a creative form of yoga where poses are linked together with the breath in a flowing sequence. Helps build overall strength and flexibility"
       },
       {
@@ -168,7 +177,8 @@
         "price": 14440,
         "duration": "4 days",
         "tags": ["detox"],
-        "img": ["2.jpg"],
+        "img": "2.jpg",
+        "rating": 5,
         "desc": "Fasting is the world’s most ancient healing tradition. It triggers a wondrous cleansing process that reaches every cell and tissue in the body and is one of the best cures for the imbalances and diseases that occur due to our modern-day lifestyles and diets. Even a short fast will accelerate elimination from your liver, kidneys, lungs, bloodstream and skin."
       },
       {
@@ -177,7 +187,8 @@
         "price": 990,
         "duration": "2 hours",
         "tags": ["meditation", "soundhealing"],
-        "img": ["3.jpg"],
+        "img": "3.jpg",
+        "rating": 5,
         "desc": "Shamanic Sound Healing Journeys are beautiful sound based meditations using high frequency healing instruments, sung & spoken voice, guided meditation, to evoke a state of well being, relaxation, deep peace and inner harmony."
       },
       {
@@ -186,7 +197,8 @@
         "price": 500,
         "duration": "1:40",
         "tags": ["yoga"],
-        "img": ["4.jpg"],
+        "img": "4.jpg",
+        "rating": 5,
         "desc": "Vinyasa is synonymous with movement. Moving in and out of postures is the obvious movement but even in stillness Vinyasa is represented by the beat of your heart and inhale/exhale of your breath."
       }
     ],
@@ -195,13 +207,13 @@
     "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
     "reviews": [
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Peter Starr",
         "date": "September 1, 2022",
         "message": "I never thought I would ever do such a thing, in fact I ridiculed my wife when she booked in, however when she came home looking and sounding so well and energetic, I actually booked myself in within 2 days. I booked for the 4 day detox and found it such a great journey I added a day just because! I actually thought it was easy."
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "",
         "date": "January 15, 2022",
         "message": ""
@@ -226,7 +238,8 @@
         "id": 1, 
         "price": 300,
         "duration": "4 hours",
-        "img": ["4.jpg"],
+        "img": "4.jpg",
+        "rating": 5,
         "desc": "Sound Healing session with crystal singing bowls",
         "tags": ["soundhealing"]
       },
@@ -234,7 +247,8 @@
         "name": "Sauna & Icebath",
         "id": 2,
         "price": 200,
-        "img": ["1.jpg"],
+        "img": "1.jpg",
+        "rating": 5,
         "duration": "1 day",
         "desc": "We invite you every day to visit our sauna, filled with amazing smell of wood, healing herbs and oils which guarantee great effect to your mind and body",
         "tags": ["sauna", "icebath"]
@@ -243,7 +257,8 @@
         "name": "Gong Meditation",
         "price": 1000,
         "id": 3,
-        "img": ["2.jpg"],
+        "img": "2.jpg",
+        "rating": 5,
         "duration": "6 hours",
         "desc": "Come back to the presence of the moment, relax, listen. Gong meditation is a soundhealing journey by Gong Gaia (Fran Bak) and Anton",
         "tags": ["meditation"]
@@ -252,7 +267,8 @@
         "name": "Kundalini Yoga",
         "price": 400,
         "id": 4,
-        "img": ["3.jpg"],
+        "img": "3.jpg",
+        "rating": 4,
         "duration": "90 min",
         "desc": "Kundalini yoga is a type of yoga that involves chanting, singing, breathing exercises, and repetitive poses. Kundalini guides us in reacting to the ups and downs from a more neutral headspace.",
         "tags": ["yoga"]
@@ -263,19 +279,19 @@
     "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
     "reviews": [
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Joakim Vorvik",
         "date": "April 30, 2022",
         "message": "Really nice events here, so good atmosphere! Good sauna and ice baths. 😊🌟💜"
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Nick Popov",
         "date": "January 29, 2022",
         "message": "Amazing place with high vibes atmosphere good music, sauna, wonderful soundhealing, yoga and stunning events. Highly recommend"
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Ruja Mroczynski",
         "date": "July 21, 2022",
         "message": "I have been to two sound healing group sessions and they were both the best I have experienced. My body was vibrating all over. There was also a sauna afterward that I have yet to experience!"
@@ -300,7 +316,8 @@
         "id": 1, 
         "price": 0,
         "duration": "10 days",
-        "img": ["1.jpg"],
+        "img": "1.jpg",
+        "rating": 5,
         "desc": "A retreat with Anthony offers the supporting conditions, intensive structure and personal guidance for meditators to directly and intuitively experience insight into the conditioned nature of the mind-and-body – Vipassana",
         "tags": ["retreat", "meditation", "vipassana"]
       },
@@ -308,7 +325,8 @@
         "name": "Loving Kindness Retreat",
         "id": 2,
         "price": 0,
-        "img": ["2.jpg"],
+        "img": "2.jpg",
+        "rating": 5,
         "duration": "5 days",
         "desc": "Metta meditation is the cultivation and radiation of intentional friendliness and goodwill. A retreat with Anthony teaches loving-kindness through guided meditations and inspiring instructions. It focuses on healing ourselves and relationships, and developing blissful concentration. The path of loving-kindness brings spiritual renewal by delivering the real, tangible and immediate benefit of genuine happiness",
         "tags": ["retreat", "meditation"]
@@ -319,19 +337,19 @@
     "img": ["1.jpg", "2.jpg"],
     "reviews": [
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Jon Walsh",
         "date": "November 10, 2022",
         "message": "This is a space of true family and support, I had an amazing Vipassana experience here and would recommend it too everyone. Talks, guides, location, food, vibe all top banana 5/5. 💥🙏🏻"
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Pavil Pikalev",
         "date": "September 19, 2022",
         "message": "I have been on two Vipassana Retreats with Anthony and each time it was an unforgettable experience. It fits perfectly for beginners as the teacher is very supportive in his instruction.  At the same time, there are perfect conditions for experienced friends of Dhamma to deepen their practice. Probably the best way to contemplate the nature of reality and learn about yourself."
       },
       {
-        "rate": 5,
+        "rating": 5,
         "user": "Michael Edward Johnson",
         "date": "November 27, 2022",
         "message": "Anthony is a fantastically warm and skilled teacher, and a wonderful human being. Indriya is a welcoming venue for deep work. Can't say enough good things about both."

@@ -29,10 +29,6 @@
             <!-- Name -->
             <h4 class="card-title">{{ hotel.name }}</h4>
             <!-- Rating -->
-            <HotelCardRating
-              :id="hotel.id"
-              :rating="hotel.rating"
-            />
           </div>
           <!-- Location -->
           <div class="d-flex flex-wrap align-items-center mb-2">
@@ -92,14 +88,10 @@
 </template>
 
 <script>
-import HotelCardRating from "@/components/HotelCardRating"
 import facilityIcons from "@/assets/data/maps/facility-icons"
 
 export default {
   name: "HotelCard",
-  components: {
-    HotelCardRating,
-  },
   props: {
     hotel: { // data about hotel
       type: Object,

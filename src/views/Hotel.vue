@@ -33,12 +33,6 @@
                 <span class="mx-2">&#8226;</span>
                 <span>Subway Access</span>
               </span>
-
-              <HotelCardRating
-                :id="hotel.id"
-                :rating="hotel.rating"
-                class="flex-1 text-right"
-              />
             </div>
             <div>
               <i class="fas fa-hotel mr-2 text-primary"></i> 
@@ -230,7 +224,6 @@
 import VisitorCounter from "@/components/VisitorCounter.vue"
 import HotelCarousel from "@/components/HotelCarousel.vue"
 import MapModal from "@/components/modals/MapModal"
-import HotelCardRating from "@/components/HotelCardRating"
 
 import hotels from "@/assets/data/hotels"
 import bedSizeIcons from "@/assets/data/maps/bed-size-icons"
@@ -246,7 +239,6 @@ export default {
     VisitorCounter,
     HotelCarousel,
     MapModal,
-    HotelCardRating
   },
   mixins: [bookingValidation, validateState],
   data() {

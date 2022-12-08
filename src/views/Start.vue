@@ -27,6 +27,7 @@
 
 <script>
 import { getStart } from '@/api'
+import { storeUser, getUser } from '@/helpers/localStorage'
 
 export default {
   name: "Start",
@@ -37,24 +38,20 @@ export default {
     }
   },
   methods: {
-    signIn() {
-      this.$router.push({ name: "SignIn" })
-    },
     signUp() {
       this.$router.push({ name: "SignUp" })
     },
     goHome() {
       this.$router.push({ name: "Home" })
     },
-    auth(session) {      
-      getStart(session)
+    auth(user) {
+      getStart(user)
       .then(({ data }) => {
         const { user } = data
         if (user) {
-          this.$router.push({
-            name: "Home",
-            params: { user }
-          })
+          storeUser(user)
+          this.$store.commit('setUser', user)
+          this.goHome()
         }
         this.isLoading = false
       })
@@ -62,8 +59,8 @@ export default {
     }
   },
   mounted() {
-    const session = localStorage.getItem('session');
-    if (session) this.auth(session)
+    const user = getUser()
+    if (user) this.auth(user)
     else this.isLoading = false
   }
 };

@@ -64,6 +64,7 @@
 
 <script>
 import { signup } from '@/api'
+import { storeUser } from '@/helpers/localStorage'
 
 export default {
   name: "SignUp",
@@ -98,13 +99,9 @@ export default {
               this.isDisabled = true
             }
           } else if (user) {
-            const { session } = user
-            if (session) localStorage.setItem('session', session)
-            else localStorage.removeItem('session')
-            // this.$router.push({
-            //   name: "Home",
-            //   params: { user }
-            // })
+            storeUser(user)
+            this.$store.commit('setUser', user)
+            this.$router.push({ name: "Home" })
           }
         })
         .catch(error => console.log('ERROR', error))
