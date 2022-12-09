@@ -64,4 +64,104 @@
   [type="submit"] {
     -webkit-appearance: button;
   }
+
+  h4 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .like-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(125,125,125,0.5);
+    width: 46px;
+    height: 46px;
+    font-size: 26px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+
+    &:hover {
+      background-color: rgba(125,125,125,0.7);
+    }
+
+    i {
+      margin-bottom: -3px;
+    }
+
+    &.liked {
+      color: red;
+      background: rgba(255,255,255,0.7);
+    }
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.7rem;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+
+    .city {
+      flex-shrink: 0;
+    }
+
+    .address {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .book-btn {
+    margin-left: auto;
+    height: 44px;
+    font-size: 20px;
+    line-height: 42px;
+    padding: 0 1rem;
+  }
+
+  .reviews {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    display: flex;
+    align-items: center;
+    height: 42px;
+    color: #0b0062;
+    font-size: 20px;
+    background: rgba(225,225,225,0.5);
+    padding: 0 0.8rem;
+    border-radius: 0.5rem;
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li {
+      padding: 0.2rem 0.5rem;
+      background: rgba(125,125,125,0.18);
+      color: #300000;
+      border-radius: 0.5rem;
+      margin-right: 0.5rem;
+      height: 30px;
+      display: flex;
+      align-items: center;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
 }

@@ -30,6 +30,21 @@ export default [
     component: () => import('@/views/User.vue')
   },
   {
+    path: '/service/:partnerId/:id?',
+    name: 'Service',
+    component: () => import('@/views/Service.vue')
+  },
+  {
+    path: '/partner/:id?',
+    name: 'Partner',
+    component: () => import('@/views/Partner.vue')
+  },
+  {
+    path: '/book/:partnerId/:id?',
+    name: 'Book',
+    component: () => import('@/views/Book.vue')
+  },
+  {
     path: '/hotel/:id?',
     name: 'Hotel',
     component: () => import('@/views/Hotel.vue')

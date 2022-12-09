@@ -2,7 +2,7 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 
 import partners from "@/assets/data/partners"
-import { fixStr} from "@/helpers/strings"
+import { fixStr } from "@/helpers/strings"
 
 Vue.use(Vuex)
 
@@ -23,11 +23,26 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
-    getService(state, serviceId, partnerId) {
-      const partner = state.partners.find(item => parseInt(partnerId) === item.id)
-      if (partner) {
-        partner.services.find(item => parseInt(serviceId) === item.id)
-      }
+    getService: (state) => (serviceId, partnerId) => {
+      const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
+      let result = null
+      partner && partner.services.some(service => {
+        console.log(fixStr(serviceId), fixStr(service.id), partner)
+        if (fixStr(serviceId) === fixStr(service.id)) {
+          const { location, email, phone, website, name } = partner
+          result = {
+            ...service,
+            partnerId,
+            location,
+            website,
+            phone,
+            email,
+            partnerName: name 
+          }
+          return true
+        }
+      })
+      return result
     },
     getAllServices(state) {
       const result = []
@@ -39,7 +54,7 @@ export const store = new Vuex.Store({
       })
       return result
     },
-    searchServices(state, data) {
+    searchServices: (state) => (data) => {
       const { search } = data
       const searchArr = search.split(' ').map(fixStr).filter(s => s)
       const result = []
