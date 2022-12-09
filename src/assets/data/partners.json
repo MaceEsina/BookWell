@@ -19,7 +19,7 @@
         "duration": "90 min",
         "tags": ["massage"],
         "img": "1.jpg",
-        "rating": 5,
+        "rating": 4.9,
         "desc": "Oil Massage is massage to relax with oil  into the  body.  After completed it will feel relaxing and improve blood circulation."
       },
       {
@@ -53,7 +53,7 @@
         "message": "The best massage I ever had in my life. Great atmosphere best care. Words cannot describe. Must in koh phangen"
       },
       {
-        "rating": 4,
+        "rating": 4.4,
         "user": "Robinsy",
         "date": "July 16, 2022",
         "message": "We booked a couples massage whilst staying at Santhiya. We were welcomed and shown to the room. The room was beautifully set out. We both enjoyed an aroma massage. Both masseuse were amazing. The massage was just what was needed and came away very relaxed"
@@ -105,7 +105,7 @@
         "duration": "2 days",
         "img": "5.jpg",
         "id": 3,
-        "rating": 4,
+        "rating": 4.7,
         "tags": ["dance", "meditation"],
         "desc": "Dance Meditation Therapy is a unique system developed in Samma Karuna by Ishi. Intensely lived moments through music and expression are the heart of this dance therapy course. Every session have a profound capacity to transform us and connect us with life."
       },
@@ -115,7 +115,7 @@
         "id": 4,
         "duration": "6 hours",
         "img": "4.jpg",
-        "rating": 4,
+        "rating": 4.8,
         "tags": ["workshop", "reiki"],
         "desc": "You will learn how to awaken your consciousness, calm your mind and open your heart for the Reiki energy to flow through you. Reiki is a beautiful art of healing that offers beneficial, calming, balancing and stress-reducing effects."
       }
@@ -155,7 +155,7 @@
         "name": "Hatha Yoga",
         "id": 1,
         "price": 300,
-        "duration": "1:30",
+        "duration": "90 min",
         "tags": ["yoga"],
         "img": "1.jpg",
         "rating": 5,
@@ -165,10 +165,10 @@
         "name": "Yin Yoga Class",
         "id": 2,
         "price": 300,
-        "duration": "1:30",
+        "duration": "90 min",
         "tags": ["yoga"],
         "img": "5.jpg",
-        "rating": 4,
+        "rating": 4.8,
         "desc": "Yin yoga is a creative form of yoga where poses are linked together with the breath in a flowing sequence. Helps build overall strength and flexibility"
       },
       {
@@ -183,7 +183,7 @@
       },
       {
         "name": "Shamanic Sound Healing Meditation",
-        "id": 4,
+        "id": 4.3,
         "price": 990,
         "duration": "2 hours",
         "tags": ["meditation", "soundhealing"],
@@ -195,7 +195,7 @@
         "name": "Vinyasa Flow Yoga Class",
         "id": 5,
         "price": 500,
-        "duration": "1:40",
+        "duration": "100 min",
         "tags": ["yoga"],
         "img": "4.jpg",
         "rating": 5,
@@ -268,7 +268,7 @@
         "price": 400,
         "id": 4,
         "img": "3.jpg",
-        "rating": 4,
+        "rating": 4.6,
         "duration": "90 min",
         "desc": "Kundalini yoga is a type of yoga that involves chanting, singing, breathing exercises, and repetitive poses. Kundalini guides us in reacting to the ups and downs from a more neutral headspace.",
         "tags": ["yoga"]

@@ -8,7 +8,7 @@
     <button v-if="user" class="user" @click="goUser">
       <i class="far fa-user" />
     </button>
-    <b-button variant="primary" class="login" v-else @click="signIn">
+    <b-button variant="secondary" class="login" v-else @click="signIn">
       Login
     </b-button>
   </header>
