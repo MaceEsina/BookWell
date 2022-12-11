@@ -10,7 +10,7 @@
   header {
     padding: 2.2rem 1.5rem 1.5rem;
     color: white;
-    max-width: 520px;
+    max-width: $app-width;
 
     h1 {
       font-size: 40px;
@@ -27,7 +27,7 @@
     border-top-right-radius: 1rem;
     background-color: white;
     height: 100%;
-    max-width: 520px;
+    max-width: $app-width;
 
     .form-group {
       margin-bottom: 1rem;

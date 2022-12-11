@@ -1,5 +1,18 @@
 <template>
   <div class="home-page">
+    <header class="header">
+      <div class="lang" @click="toggleLang" role="button">
+        <img v-if="lang === 'eng'" class="img" src="@/assets/img/ukFlag.png" />
+        <img v-else class="img" src="@/assets/img/thaiFlag.png" />
+      </div>
+      <h1>BookWell</h1>
+      <button v-if="user" class="user" @click="goUser">
+        <i class="far fa-user" />
+      </button>
+      <b-button variant="secondary" class="login" v-else @click="signIn">
+        Login
+      </b-button>
+    </header>
     <Header />
     <h2>
       Plan your health anywhere, anytime
@@ -32,12 +45,10 @@
 
 <script>
 import ServiceCard from "@/components/ServiceCard"
-import Header from "@/components/Header"
 
 export default {
   name: "Home",
   components: {
-    Header,
     ServiceCard
   },
   data() {
@@ -47,6 +58,12 @@ export default {
     }
   },
   computed: {
+    user () {
+      return this.$store.state.user
+    },
+    lang () {
+      return this.$store.state.lang
+    },
     services() {
       return this.$store.getters.getAllServices
     }
@@ -54,6 +71,15 @@ export default {
   methods: {
     onSearch() {
       // TODO
+    },
+    signIn() {
+      this.$router.push({ name: "SignIn" })
+    },
+    goUser() {
+      this.$router.push({ name: "User" })
+    },
+    toggleLang() {
+      this.$store.commit('changeLanguage')
     }
   },
 };
