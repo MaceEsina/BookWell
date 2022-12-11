@@ -1,14 +1,13 @@
 const USER = 'user-bookwell'
-const SESSION = 'user-bookwell'
+const SESSION = 'session-bookwell'
 
 const storeUser = (user) => {
   const { id, session } = user
 
+  localStorage.setItem(USER, id)
   if (session) {
     localStorage.setItem(SESSION, session)
-    localStorage.setItem(USER, id)
   } else {
-    localStorage.removeItem(USER)
     localStorage.removeItem(SESSION)
   }
 }

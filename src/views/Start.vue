@@ -52,8 +52,7 @@ export default {
           storeUser(user)
           this.$store.commit('setUser', user)
           this.goHome()
-        }
-        this.isLoading = false
+        } else this.isLoading = false
       })
       .catch(error => console.log('ERROR', error))
     }

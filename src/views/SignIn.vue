@@ -80,7 +80,7 @@ export default {
       const params = {
         email: this.email,
         password: this.password,
-        rememberMe: this.rememberMe,
+        rememberMe: this.rememberMe ? 1 : 0,
       }
       signin(params)
       .then(({ data }) => {
