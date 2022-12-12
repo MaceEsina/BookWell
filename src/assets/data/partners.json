@@ -20,6 +20,8 @@
         "tags": ["massage"],
         "img": "1.jpg",
         "rating": 4.9,
+        "time": ["10:00", "12:00", "14:00", "16:00", "18:00", "20:00"],
+        "dates": ["2022-12-28", "2022-12-29", "2022-12-30", "2022-12-31", "2023-01-01", "2023-01-02", "2023-01-03"],
         "desc": "Oil Massage is massage to relax with oil  into the  body.  After completed it will feel relaxing and improve blood circulation."
       },
       {
@@ -30,6 +32,8 @@
         "tags": ["massage"],
         "img": "2.jpg",
         "rating": 5,
+        "time": ["9:00", "11:00", "13:00", "15:00", "17:00", "19:00"],
+        "dates": ["2022-12-28", "2022-12-29", "2022-12-30", "2022-12-31", "2023-01-01", "2023-01-02", "2023-01-03"],
         "desc": "A combination of pressure point massage and yoga stretching, if you’re looking for treating back or shoulder pain, a stiff neck or muscle strain from exercise. This is a great choice!"      },
       {
         "name": "Aromatherapy massage",
@@ -38,6 +42,8 @@
         "duration": "120 min",
         "img": "3.jpg",
         "rating": 5,
+        "time": ["10:00", "13:00", "16:00", "19:00"],
+        "dates": ["2022-12-28", "2022-12-29", "2022-12-30", "2022-12-31", "2023-01-01", "2023-01-02", "2023-01-03"],
         "tags": ["massage", "spa", "aromatherapy"],
         "desc": "Aromatherapy massage combines the power of essential oils with massage therapy, benefitting both the mind and the body."
       }
@@ -87,6 +93,8 @@
         "tags": ["yoga", "workshop"],
         "img": "2.jpg",
         "rating": 5,
+        "dates": ["2023-01-10", "2023-02-10", "2023-03-10"],
+        "timeStart": "12:00",
         "desc": "We offer a 4 weeks all year around Yoga program for Awakening & Healing"
       },
       {
@@ -97,6 +105,8 @@
         "tags": ["yoga", "workshop"],
         "img": "3.jpg",
         "rating": 5,
+        "dates": ["2023-01-05", "2023-03-05"],
+        "timeStart": "12:00",
         "desc": "We offer a 8 weeks all year around Yoga program for Awakening & Healing"
       },
       {
@@ -107,6 +117,8 @@
         "id": 3,
         "rating": 4.7,
         "tags": ["dance", "meditation"],
+        "dates": ["2022-12-28", "2023-01-03", "2023-01-06", "2023-01-09"],
+        "timeStart": "11:00",
         "desc": "Dance Meditation Therapy is a unique system developed in Samma Karuna by Ishi. Intensely lived moments through music and expression are the heart of this dance therapy course. Every session have a profound capacity to transform us and connect us with life."
       },
       {
@@ -117,6 +129,8 @@
         "img": "4.jpg",
         "rating": 4.8,
         "tags": ["workshop", "reiki"],
+        "dates": ["2022-12-25", "2022-12-28", "2022-12-29", "2023-01-02", "2023-01-04", "2023-01-06", "2023-01-08"],
+        "timeStart": "10:30",
         "desc": "You will learn how to awaken your consciousness, calm your mind and open your heart for the Reiki energy to flow through you. Reiki is a beautiful art of healing that offers beneficial, calming, balancing and stress-reducing effects."
       }
     ],
@@ -159,6 +173,8 @@
         "tags": ["yoga"],
         "img": "1.jpg",
         "rating": 5,
+        "timeStart": "09:00",
+        "dates": ["2022-12-28", "2022-12-30", "2023-01-01", "2023-01-03", "2023-01-05"],
         "desc": "A set of willful and active practices that aim to achieve harmony and balance in the mind, body, and spirit"
       },
       {
@@ -169,6 +185,8 @@
         "tags": ["yoga"],
         "img": "5.jpg",
         "rating": 4.8,
+        "timeStart": "16:00",
+        "dates": ["2022-12-28", "2022-12-30", "2023-01-01", "2023-01-03", "2023-01-05"],
         "desc": "Yin yoga is a creative form of yoga where poses are linked together with the breath in a flowing sequence. Helps build overall strength and flexibility"
       },
       {
@@ -179,6 +197,8 @@
         "tags": ["detox"],
         "img": "2.jpg",
         "rating": 5,
+        "dates": ["2022-12-25", "2022-12-30", "2023-01-05", "2023-01-10", "2023-01-15"],
+        "timeStart": "10:00",
         "desc": "Fasting is the world’s most ancient healing tradition. It triggers a wondrous cleansing process that reaches every cell and tissue in the body and is one of the best cures for the imbalances and diseases that occur due to our modern-day lifestyles and diets. Even a short fast will accelerate elimination from your liver, kidneys, lungs, bloodstream and skin."
       },
       {
@@ -189,6 +209,8 @@
         "tags": ["meditation", "soundhealing"],
         "img": "3.jpg",
         "rating": 5,
+        "dates": ["2022-12-26", "2022-12-31", "2023-01-05", "2023-01-10"],
+        "timeStart": "19:00",
         "desc": "Shamanic Sound Healing Journeys are beautiful sound based meditations using high frequency healing instruments, sung & spoken voice, guided meditation, to evoke a state of well being, relaxation, deep peace and inner harmony."
       },
       {
@@ -199,6 +221,8 @@
         "tags": ["yoga"],
         "img": "4.jpg",
         "rating": 5,
+        "timeStart": "10:00",
+        "dates": ["2022-12-28", "2022-12-30", "2023-01-01", "2023-01-03", "2023-01-05"],
         "desc": "Vinyasa is synonymous with movement. Moving in and out of postures is the obvious movement but even in stillness Vinyasa is represented by the beat of your heart and inhale/exhale of your breath."
       }
     ],
@@ -240,6 +264,8 @@
         "duration": "4 hours",
         "img": "4.jpg",
         "rating": 5,
+        "timeStart": "18:30",
+        "dates": ["2022-12-27", "2022-12-30", "2023-01-01", "2023-01-03", "2023-01-05"],
         "desc": "Sound Healing session with crystal singing bowls",
         "tags": ["soundhealing"]
       },
@@ -250,6 +276,9 @@
         "img": "1.jpg",
         "rating": 5,
         "duration": "1 day",
+        "timeStart": "11:00",
+        "timeEnd": "23:00",
+        "dates": ["2022-12-27", "2022-12-28", "2022-12-29", "2022-12-30", "2022-12-31"],
         "desc": "We invite you every day to visit our sauna, filled with amazing smell of wood, healing herbs and oils which guarantee great effect to your mind and body",
         "tags": ["sauna", "icebath"]
       },
@@ -260,6 +289,8 @@
         "img": "2.jpg",
         "rating": 5,
         "duration": "6 hours",
+        "timeStart": "14:00",
+        "dates": ["2022-12-25", "2023-01-03", "2023-01-10", "2023-01-17"],
         "desc": "Come back to the presence of the moment, relax, listen. Gong meditation is a soundhealing journey by Gong Gaia (Fran Bak) and Anton",
         "tags": ["meditation"]
       },
@@ -270,6 +301,8 @@
         "img": "3.jpg",
         "rating": 4.6,
         "duration": "90 min",
+        "timeStart": "15:00",
+        "dates": ["2022-12-28", "2023-01-04", "2023-01-10"],
         "desc": "Kundalini yoga is a type of yoga that involves chanting, singing, breathing exercises, and repetitive poses. Kundalini guides us in reacting to the ups and downs from a more neutral headspace.",
         "tags": ["yoga"]
       }
@@ -318,6 +351,8 @@
         "duration": "10 days",
         "img": "1.jpg",
         "rating": 5,
+        "timeStart": "11:00",
+        "dates": ["2023-01-01", "2023-02-01", "2023-03-01"],
         "desc": "A retreat with Anthony offers the supporting conditions, intensive structure and personal guidance for meditators to directly and intuitively experience insight into the conditioned nature of the mind-and-body – Vipassana",
         "tags": ["retreat", "meditation", "vipassana"]
       },
@@ -328,6 +363,8 @@
         "img": "2.jpg",
         "rating": 5,
         "duration": "5 days",
+        "timeStart": "11:00",
+        "dates": ["2023-01-05", "2023-02-05", "2023-03-05"],
         "desc": "Metta meditation is the cultivation and radiation of intentional friendliness and goodwill. A retreat with Anthony teaches loving-kindness through guided meditations and inspiring instructions. It focuses on healing ourselves and relationships, and developing blissful concentration. The path of loving-kindness brings spiritual renewal by delivering the real, tangible and immediate benefit of genuine happiness",
         "tags": ["retreat", "meditation"]
       }
