@@ -1,37 +1,8 @@
-$header-hight: 70px;
-
 .home-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1.5rem;
-  max-width: $app-width;
-  margin: $header-hight auto 0;
+  @include page;
 
   .header {
-    position: fixed;
-    top: 0;
-    z-index: 99999;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: $app-width;
-    padding: 0 1.5rem;
-    height: $header-hight;
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: -100rem;
-      right: -100rem;
-      border-top: 1px solid #ddd;
-      z-index: 1;
-    }
+    @include header;
 
     h1 {
       font-size: 26px;
@@ -56,24 +27,8 @@ $header-hight: 70px;
       }
     }
 
-    .login {
-      width: 80px;
-      height: 2.2rem;
-      font-size: 18px;
-      color: #222;
-      font-family: 'Lato-Bold';
-    }
-
-    .user {
-      width: 80px;
-      height: 60px;
-      padding: 0.5rem 0;
-      font-size: 24px;
-      color: $dark-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: none;
+    .login-btn {
+      @include login-btn;
     }
   }
 
@@ -86,19 +41,7 @@ $header-hight: 70px;
   }
 
   .search-bar {
-    margin: 1rem 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    button {
-      background-color: #bbb;
-      color: white;
-      width: 3rem;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-    }
+    @include search-bar;
   }
 
   .cards {

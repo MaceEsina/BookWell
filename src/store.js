@@ -23,11 +23,14 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
+    getReviews: (state) => (partnerId) => {
+      const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
+      if (partner) return partner.reviews
+    },
     getService: (state) => (serviceId, partnerId) => {
       const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
       let result = null
       partner && partner.services.some(service => {
-        console.log(fixStr(serviceId), fixStr(service.id), partner)
         if (fixStr(serviceId) === fixStr(service.id)) {
           const { location, email, phone, website, name } = partner
           result = {

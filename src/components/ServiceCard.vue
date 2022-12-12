@@ -1,5 +1,5 @@
 <template>
-  <b-card no-body class="card shadow" @click="goToService">
+  <b-card no-body class="shadow" @click="goToService">
     <div class="image">
       <b-card-img
         :src="require(`@/assets/img/${service.partnerId}/${service.img}`)"

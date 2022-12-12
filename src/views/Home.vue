@@ -9,17 +9,16 @@
       <button v-if="user" class="user" @click="goUser">
         <i class="far fa-user" />
       </button>
-      <b-button variant="secondary" class="login" v-else @click="signIn">
+      <b-button variant="secondary" class="login-btn" v-else @click="signIn">
         Login
       </b-button>
     </header>
-    <Header />
     <h2>
       Plan your health anywhere, anytime
     </h2>
     <div class="search-bar">
       <b-input-group size="lg">
-        <b-form-input v-model="search" size="lg" placeholder="Search services">
+        <b-form-input v-model="search" size="lg" placeholder="Search service or destination">
         </b-form-input>
         <b-input-group-append>
           <button @click="onSearch">
@@ -27,13 +26,11 @@
           </button>
         </b-input-group-append>
       </b-input-group>
-      <!--<b-input-group>
-        <b-input-group-prepend isText>
-          <i class="fa fa-map-marker-alt"></i>
-        </b-input-group-prepend>
-        <b-form-input v-model="destination" size="lg" placeholder="Enter destination">
-        </b-form-input>
-      </b-input-group>-->
+      <!--<div class="filter-bar">
+        <button class="filter">
+          <i class="fa fa-filter"></i>
+        </button>
+      </div>-->
     </div>
     <ul class="cards">
       <li v-for="service in services" :key="`${service.id}_${service.partnerId}`">

@@ -1,10 +1,18 @@
 .service-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0 1.7rem;
-  max-width: $app-width;
-  margin: 0 auto;
+  @include page;
+
+  .header {
+    @include header;
+
+    .search-bar {
+      @include search-bar;
+    }
+
+    .login-btn {
+      @include login-btn;
+      margin-left: 1.5rem;
+    }
+  }
   
   .image {
     position: relative;
@@ -14,6 +22,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    flex-shrink: 0;
 
     img {
       width: 100%;
@@ -22,6 +31,7 @@
 
   .info,
   .reviews-list {
+    width: 100%;
     padding: 0 0.3rem;
   }
 
@@ -38,6 +48,64 @@
   .partner {
     margin-top: 0.7rem;
 
+  }
+
+  .dates {
+    display: flex;
+    flex-direction: column;
+    
+    li {
+      border-radius: 0.5rem;
+      width: 100%;
+      margin: 0.5rem 0 0.9rem;
+    }
+
+    .date {
+      font-family: 'Lato-Bold';
+      font-size: 1.2rem;
+      letter-spacing: 0.2px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      color: #444;
+      
+      i {
+        margin: 0 0.4rem 0 0.2rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    .time {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -0.4rem 0;
+
+      li {
+        background-color: rgba(125, 125, 125, 0.14);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        margin: 0.4rem;
+        width: auto;
+      }
+    }
+
+    .show-more-btn {
+      background: none;
+      width: auto;
+      color: #555;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+
+      i {
+        margin-left: 0.5rem;
+        color: #666;
+        margin-bottom: -2px;
+      }
+    }
   }
 
   .price {
@@ -63,7 +131,7 @@
     font-size: 1.1rem;
 
     a {
-      color: #606060;
+      color: #444;
       display: flex;
       align-items: center;
       margin-bottom: 0.5rem;
