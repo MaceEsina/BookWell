@@ -47,7 +47,7 @@
         <span>{{service.price}} THB</span>
         <span class="mx-2 text-primary">•</span>
         <span>{{service.duration}}</span>
-        <b-button class="book-btn" :to="`/book/${service.partnerId}/${service.id}`" variant="primary">
+        <b-button class="book-btn" @click="goToBook" variant="primary">
           Book Now
         </b-button>
       </div>
@@ -176,7 +176,16 @@ export default {
       this.$router.push({ name: "SignIn" })
     },
     goBack() {
-      this.$router.back()
+      this.$router.push({ name: "Home" })
+    },
+    goToBook() {
+      this.$router.push({
+        name: "Book",
+        params: {
+          id: this.service.id,
+          partnerId: this.service.partnerId,
+        }
+      })
     }
   },
  };
