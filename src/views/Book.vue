@@ -1,5 +1,5 @@
 <template>
-  <div class="book-page">
+  <div :class="getPageClasses()" ref="page">
     <header class="header">
       <button class="goBack" @click="goBack">
         <i class="fa fa-arrow-left"></i>
@@ -61,17 +61,20 @@
         <h2>Date and Time</h2>
         <b-form-datepicker class="datepicker" size="lg" v-model="date" hide-header :min="minDate" :max="maxDate"
           :date-format-options="{ year: 'numeric', month: 'short', day: 'numeric' }" nav-button-variant="dark"
-          placeholder="Select Date">
+          placeholder="Select Date" reset-button close-button :boundary="$refs.page" @input="onDateSelect">
         </b-form-datepicker>
       </div>
       <ul>
-        <li v-for="date in dates" :key="date">
+        <li v-for="date in dates" :key="date" :class="getDateClasses(date)" @click="selectDate(date)">
           <div class="date">
             <i class="fa fa-calendar-day"></i>
             <span>{{parseDate(date)}}</span>
           </div>
           <ul v-if="service.time" class="time">
-            <li v-for="time in service.time" :key="time">{{time}}</li>
+            <li v-for="time in service.time" :key="time" @click.stop="selectTime(time, date)"
+              :class="getTimeClasses(date, time)">
+              {{time}}
+            </li>
           </ul>
           <div v-else class="pl-4">
             <div v-if="service.timeStart">Check-in Time: {{service.timeStart}}</div>
@@ -79,6 +82,12 @@
           </div>
         </li>
       </ul>
+      <div v-if="!dates.length" class="no-result">
+        <span>No available bookings for the selected date</span>
+        <b-button variant="primary" @click="resetDate">
+          Show available dates
+        </b-button>
+      </div>
       <button v-if="hasMore" class="show-more-btn" @click="showMore">
         <span>Show More</span>
         <i class="fa fa-chevron-down"></i>
@@ -88,6 +97,15 @@
         <i class="fa fa-chevron-up"></i>
       </button>
     </div>
+    <footer class="footer" v-if="isSelected">
+      <div class="date">
+        {{parseDate(selectedDate)}}
+        <span v-if="selectedTime"> at {{selectedTime}}</span>
+      </div>
+      <b-button variant="primary" @click="book">
+        Book Now
+      </b-button>
+    </footer>
   </div>
 </template>
 
@@ -101,7 +119,7 @@ export default {
     },
     maxDate() {
       const today = new Date()
-      const nextDate = new Date(today.setMonth(today.getMonth()+2))
+      const nextDate = new Date(today.setMonth(today.getMonth() + 3))
       return nextDate.toISOString().split('T')[0]
     },
     user () {
@@ -112,11 +130,19 @@ export default {
       return this.$store.getters.getService(id, partnerId)
     },
     dates() {
-      return this.service.dates.slice(0, this.showMoreInx * 3)
+      if (this.date) {
+        return this.service.dates.filter(date => date === this.date)
+      } else {
+        return this.service.dates.slice(0, this.showMoreInx * 3)
+      }
     },
     hasMore() {
-      return this.service.dates.length > this.dates.length
+      return !this.date && this.service.dates.length > this.dates.length
     },
+    isSelected() {
+      if (this.service.time) return !!this.selectedTime
+      else return !!this.selectedDate
+    }
   },
   data() {
     return {
@@ -125,11 +151,47 @@ export default {
       showMoreInx: 1,
       showLess: false,
       isFavorite: false,
+      selectedDate: '',
+      selectedTime: ''
     }
   },
   methods: {
     onSearch() {
       // TODO
+    },
+    book() {
+
+    },
+    getPageClasses() {
+      return (this.isSelected ? 'selected ' : '') + 'book-page'
+    },
+    getDateClasses(date) {
+      let result = !this.service.time ? 'clickable' : ''
+      if (this.selectedDate === date) result += ' selected'
+      return result
+    },
+    getTimeClasses(date, time) {
+      if (this.selectedTime === time && this.selectedDate === date) {
+        return 'selected'
+      } else return ''
+    },
+    resetSelectedDate() {
+      this.selectedDate = ''
+      this.selectedTime = ''
+    },
+    onDateSelect() {
+      this.resetSelectedDate()
+    },
+    resetDate() {
+      this.date = ''
+      this.resetSelectedDate()
+    },
+    selectTime(time, date) {
+      this.selectedTime = time
+      this.selectedDate = date
+    },
+    selectDate(date) {
+      if (!this.service.time) this.selectedDate = date
     },
     showMore() {
       this.showMoreInx = this.showMoreInx + 1
