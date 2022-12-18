@@ -1,5 +1,5 @@
 <template>
-  <div class="service-page">
+  <div :class="getPageClasses()" ref="page">
     <header class="header">
       <button class="goBack" @click="goBack">
         <i class="fa fa-arrow-left"></i>
@@ -47,50 +47,27 @@
         <span>{{service.price}} THB</span>
         <span class="mx-2 text-primary">•</span>
         <span>{{service.duration}}</span>
-        <b-button class="book-btn" @click="goToBook" variant="primary">
+        <b-button class="book-btn" @click="onBookClick" variant="primary">
           Book Now
         </b-button>
       </div>
       <hr class="w-100">
       <div class="description">
         <ul class="tags">
-          <li v-for="tag in service.tags" :key="tag">{{tag}}</li>
+          <li v-for="tag in service.tags" :key="tag">
+            {{tag}}
+          </li>
         </ul>
         <p>{{service.desc}}</p>
         <div class="partner">
-          Discover more activities with
+          Organized by
           <a :href="`/partner/${service.partnerId}`" target="_blank">
             {{service.partnerName}}
           </a>
         </div>
       </div>
       <hr class="w-100">
-      <div class="dates">
-        <h2>Date and Time</h2>
-        <ul>
-          <li v-for="date in dates" :key="date">
-            <div class="date">
-              <i class="fa fa-calendar-day"></i>
-              <span>{{parseDate(date)}}</span>
-            </div>
-            <ul v-if="service.time" class="time">
-              <li v-for="time in service.time" :key="time">{{time}}</li>
-            </ul>
-            <div v-else class="pl-4">
-              <div v-if="service.timeStart">Check-in Time: {{service.timeStart}}</div>
-              <div v-if="service.timeEnd">Check-out Time: {{service.timeEnd}}</div>
-            </div>
-          </li>
-        </ul>
-        <button v-if="hasMore" class="show-more-btn" @click="showMore">
-          <span>Show More</span>
-          <i class="fa fa-chevron-down"></i>
-        </button>
-        <button v-if="!hasMore && showLess" class="show-more-btn" @click="hideDates">
-          <span>Show Less</span>
-          <i class="fa fa-chevron-up"></i>
-        </button>
-      </div>
+      <DateSelection :service="service" :setSelected="setDateSelected" />
       <hr class="w-100">
       <div class="contacts">
         <h2>Contacts</h2>
@@ -117,18 +94,49 @@
         </li>
       </ul>
     </section>
+
+    <DatesModal
+      :service="service"
+      :isDateSelected="isDateSelected"
+      :setDateSelected="setDateSelected"
+      :onOkClick="showBookModal" />
+
+    <b-modal
+      size="lg"
+      centered
+      ok-only
+      no-stacking
+      button-size="lg"
+      id="book-modal"
+      title="Send your info"
+    >
+    </b-modal>
   </div>
 </template>
 
 <script>
 import ReviewCard from "@/components/ReviewCard"
+import DateSelection from "@/components/DateSelection"
+import DatesModal from "@/components/modals/DatesModal"
+import { parseDate } from '@/helpers/dates'
 
 export default {
   name: "Service",
   components: {
-    ReviewCard
+    ReviewCard,
+    DatesModal,
+    DateSelection
   },
   computed: {
+    minDate() {
+      const today = new Date()
+      return today.toISOString().split('T')[0]
+    },
+    maxDate() {
+      const today = new Date()
+      const nextDate = new Date(today.setMonth(today.getMonth() + 3))
+      return nextDate.toISOString().split('T')[0]
+    },
     user () {
       return this.$store.state.user
     },
@@ -139,38 +147,22 @@ export default {
     reviews() {
       const { partnerId } = this.$route.params
       return this.$store.getters.getReviews(partnerId)
-    },
-    dates() {
-      return this.service.dates.slice(0, this.showMoreInx * 3)
-    },
-    hasMore() {
-      return this.service.dates.length > this.dates.length
-    },
+    }
   },
   data() {
     return {
       search: '',
-      showMoreInx: 1,
-      showLess: false,
       isFavorite: false,
+      isDateSelected: false,
     }
   },
   methods: {
+    parseDate,
     onSearch() {
       // TODO
     },
-    showMore() {
-      this.showMoreInx = this.showMoreInx + 1
-      this.showLess = true
-    },
-    hideDates() {
-      this.showMoreInx = 1
-      this.showLess = false
-    },
-    parseDate(dateIso) {
-      const options = { year: 'numeric', month: 'short', day: 'numeric' }
-      const date = new Date(dateIso)
-      return date.toLocaleDateString(undefined, options)
+    getPageClasses() {
+      return (this.isDateSelected ? 'selected ' : '') + 'service-page'
     },
     signIn() {
       this.$router.push({ name: "SignIn" })
@@ -178,14 +170,25 @@ export default {
     goBack() {
       this.$router.push({ name: "Home" })
     },
-    goToBook() {
-      this.$router.push({
-        name: "Book",
-        params: {
-          id: this.service.id,
-          partnerId: this.service.partnerId,
-        }
-      })
+    setDateSelected(isSelected) {
+      this.isDateSelected = isSelected
+    },
+    onBookClick() {
+      if (!this.isDateSelected) {
+        this.$bvModal.show('date-modal')
+      } else {
+        this.$bvModal.show('book-modal')
+      }
+      // this.$router.push({
+      //   name: "Book",
+      //   params: {
+      //     id: this.service.id,
+      //     partnerId: this.service.partnerId,
+      //   }
+      // })
+    },
+    showBookModal() {
+      this.$bvModal.show('book-modal')
     }
   },
  };

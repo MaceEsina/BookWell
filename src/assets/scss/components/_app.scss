@@ -21,49 +21,6 @@
   font-size: 16px;
   font-family: "Lato";
 
-  h1, h2, h3, h4, p {
-    margin: 0;
-  }
-
-  .form-control:focus {
-    box-shadow: none;
-  }
-
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-  }
-
-  button,
-  input {
-    overflow: visible;
-  }
-
-  button,
-  select {
-    text-transform: none;
-    border: none;
-    outline: none;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
 
   h4 {
     font-size: 1.5rem;

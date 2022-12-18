@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
     return {
       lang: 'eng',
       user: null,
-      partners,
+      partners
     }
   },
   mutations: {

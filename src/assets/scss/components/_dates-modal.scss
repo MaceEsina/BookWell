@@ -1,0 +1,30 @@
+.date-modal {
+  .dates-header {
+    h2 {
+      display: none;
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+
+    .date {
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      font-family: 'Lato-Bold';
+    }
+
+    button {
+      height: 2.6rem;
+      max-width: 200px;
+      width: 100%;
+      font-size: inherit;
+      font-family: 'Lato-Bold';
+      letter-spacing: 0.7px;
+      margin-left: auto;
+    }
+  }
+}

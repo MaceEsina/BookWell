@@ -32,26 +32,6 @@
     }
   }
 
-  .footer {
-    @include footer;
-
-    .date {
-      margin-right: 1.5rem;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      font-family: 'Lato-Bold';
-    }
-
-    button {
-      height: 2.6rem;
-      max-width: 200px;
-      width: 100%;
-      font-size: 1.3rem;
-      font-family: 'Lato-Bold';
-      letter-spacing: 0.7px;
-    }
-  }
-
   .info {
     width: 100%;
     padding: 0 0.3rem;
