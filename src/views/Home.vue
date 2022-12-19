@@ -4,6 +4,8 @@
       <div class="lang" @click="toggleLang" role="button">
         <img v-if="lang === 'eng'" class="img" src="@/assets/img/ukFlag.png" />
         <img v-else class="img" src="@/assets/img/thaiFlag.png" />
+        <span v-if="lang === 'eng'">English</span>
+        <span v-else>Thai</span>
       </div>
       <h1>BookWell</h1>
       <button v-if="user" class="user" @click="goUser">

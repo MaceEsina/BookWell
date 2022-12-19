@@ -11,6 +11,21 @@ body {
     -moz-appearance: textfield;
   }
 
+  .modal {
+    .modal-header {
+      .close {
+        font-size: 2rem;
+      }
+    }
+    .modal-title {
+      font-size: 1.6rem;
+    }
+
+    .modal-dialog {
+      max-width: 440px;
+    }
+  }
+
   .btn:focus,
   .btn:active {
     outline: none !important;
