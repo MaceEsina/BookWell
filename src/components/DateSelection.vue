@@ -4,7 +4,7 @@
       <h2>Date and Time</h2>
       <b-form-datepicker class="datepicker" size="lg" v-model="date" hide-header :min="minDate" :max="maxDate"
         :date-format-options="{ year: 'numeric', month: 'short', day: 'numeric' }" nav-button-variant="dark"
-        placeholder="Select Date" reset-button close-button :boundary="$parent.$refs.page" @input="onDateSelect">
+        placeholder="Choose a Date" reset-button close-button :boundary="$parent.$refs.page" @input="onDateSelect">
       </b-form-datepicker>
     </div>
     <ul>
@@ -98,7 +98,6 @@ export default {
     resetSelectedDate() {
       this.selectedDate = ''
       this.selectedTime = ''
-      this.$emit('onSelect', {})
     },
     onDateSelect() {
       this.resetSelectedDate()
@@ -113,8 +112,10 @@ export default {
       this.$emit('onSelect', { time, date })
     },
     selectDate(date) {
+      const time = this.service.timeStart
+      this.selectedTime = time
       this.selectedDate = date
-      this.$emit('onSelect', { date })
+      this.$emit('onSelect', { time, date })
     },
     showMore() {
       this.showMoreInx = this.showMoreInx + 1
