@@ -67,8 +67,6 @@
         </div>
       </div>
       <hr class="w-100">
-      <DateSelection :service="service" :setSelected="setDateSelected" />
-      <hr class="w-100">
       <div class="contacts">
         <h2>Contacts</h2>
         <a v-if="service.email" :href="`mailto:${service.email}`" target="_blank">
@@ -94,29 +92,35 @@
         </li>
       </ul>
     </section>
+    <footer class="footer" v-show="isDateSelected">
+      <div class="date" v-if="isDateSelected">
+        {{parseDate(selectedDate)}}
+        <span v-if="selectedTime"> at {{selectedTime}}</span>
+      </div>
+      <b-button variant="secondary" @click="showDateModal">
+        Change time
+      </b-button>
+      <b-button variant="primary" @click="showBookModal">
+        Book Now
+      </b-button>
+    </footer>
 
     <DatesModal
       :service="service"
-      :isDateSelected="isDateSelected"
-      :setDateSelected="setDateSelected"
-      :onOkClick="showBookModal" />
+      @onSelect="setSelectedDate"
+      @onSubmit="showBookModal" />
+    <BookModal
+      :service="service"
+      :bookDate="bookDate"
+      @onSubmit="book"
+      @onSelect="showDateModal"/>
 
-    <b-modal
-      size="lg"
-      centered
-      ok-only
-      no-stacking
-      button-size="lg"
-      id="book-modal"
-      title="Send your info"
-    >
-    </b-modal>
   </div>
 </template>
 
 <script>
 import ReviewCard from "@/components/ReviewCard"
-import DateSelection from "@/components/DateSelection"
+import BookModal from "@/components/modals/BookModal"
 import DatesModal from "@/components/modals/DatesModal"
 import { parseDate } from '@/helpers/dates'
 
@@ -124,8 +128,8 @@ export default {
   name: "Service",
   components: {
     ReviewCard,
-    DatesModal,
-    DateSelection
+    BookModal,
+    DatesModal
   },
   computed: {
     minDate() {
@@ -147,13 +151,25 @@ export default {
     reviews() {
       const { partnerId } = this.$route.params
       return this.$store.getters.getReviews(partnerId)
+    },
+    isDateSelected() {
+      return !!(this.service.time ? this.selectedTime : this.selectedDate)
+    },
+    bookDate() {
+      let date = ''
+      if (this.isDateSelected) {
+        date = parseDate(this.selectedDate)
+        if (this.selectedTime) date += ` at ${this.selectedTime}`
+      }
+      return date
     }
   },
   data() {
     return {
       search: '',
       isFavorite: false,
-      isDateSelected: false,
+      selectedDate: '',
+      selectedTime: ''
     }
   },
   methods: {
@@ -170,25 +186,23 @@ export default {
     goBack() {
       this.$router.push({ name: "Home" })
     },
-    setDateSelected(isSelected) {
-      this.isDateSelected = isSelected
+    setSelectedDate(data) {
+      this.selectedDate = data.date
+      this.selectedTime = data.time
     },
-    onBookClick() {
-      if (!this.isDateSelected) {
-        this.$bvModal.show('date-modal')
-      } else {
-        this.$bvModal.show('book-modal')
-      }
-      // this.$router.push({
-      //   name: "Book",
-      //   params: {
-      //     id: this.service.id,
-      //     partnerId: this.service.partnerId,
-      //   }
-      // })
+    book() {
+      // TODO
+      console.log('book')
+    },
+    showDateModal() {
+      this.$bvModal.show('date-modal')
     },
     showBookModal() {
       this.$bvModal.show('book-modal')
+    },
+    onBookClick() {
+      if (!this.isDateSelected) this.showDateModal()
+      else this.showBookModal()
     }
   },
  };

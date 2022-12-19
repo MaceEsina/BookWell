@@ -27,7 +27,7 @@
     </ul>
     <div v-if="!dates.length" class="no-result">
       <span>No available bookings for the selected date</span>
-      <b-button variant="primary" @click="resetDate">
+      <b-button variant="primary" @click="reset">
         Show available dates
       </b-button>
     </div>
@@ -103,7 +103,7 @@ export default {
     onDateSelect() {
       this.resetSelectedDate()
     },
-    resetDate() {
+    reset() {
       this.date = ''
       this.resetSelectedDate()
     },
@@ -123,7 +123,7 @@ export default {
     hideDates() {
       this.showMoreInx = 1
       this.showLess = false
-    },
+    }
   }
 }
 </script>

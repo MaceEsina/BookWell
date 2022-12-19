@@ -1,0 +1,34 @@
+.book-modal {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .date {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #0a177f;
+    font-family: 'Lato-Bold';
+  }
+
+  .partner {
+    margin-top: 0.4rem;
+  }
+
+  .footer {
+    .price {
+      font-size: 18px;
+      font-family: 'Lato-Bold';
+      letter-spacing: 0.4px;
+    }
+
+    button {
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+
+      &:first-of-type {
+        margin-left: auto;
+      }
+    }
+  }
+}

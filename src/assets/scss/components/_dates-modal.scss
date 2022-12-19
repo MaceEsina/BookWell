@@ -5,25 +5,23 @@
     }
   }
 
-  .footer {
+  .dates-footer {
     display: flex;
     align-items: center;
     width: 100%;
     font-size: 1.2rem;
-
+    padding: 0 0.25rem;
+  
     .date {
-      margin-right: 1.5rem;
+      margin-right: 1;
       flex-shrink: 0;
       font-family: 'Lato-Bold';
     }
 
     button {
-      height: 2.6rem;
-      max-width: 200px;
       width: 100%;
-      font-size: inherit;
-      font-family: 'Lato-Bold';
-      letter-spacing: 0.7px;
+      font-size: 1.1rem;
+      max-width: 180px;
       margin-left: auto;
     }
   }

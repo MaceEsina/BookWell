@@ -7,23 +7,19 @@
     footer-class="footer"
     modal-class="date-modal"
     :title="`Select date${service.time ? ' and time' : ''}`"
-    @ok="onOkClick"
   >
-    <DateSelection
-      :service="service"
-      @onSelect="setSelectedData"
-      @onBookClick="onOkClick" />
+    <DateSelection :service="service" @onSelect="setSelectedDate" />
 
     <template #modal-footer>
-      <footer class="footer">
-        <!--<div class="date" v-if="isDateSelected">
+      <div class="dates-footer">
+        <div class="date" v-if="isDateSelected">
           {{parseDate(selectedDate)}}
           <span v-if="selectedTime"> at {{selectedTime}}</span>
-        </div>-->
-        <b-button variant="primary" @click="onOkClick" :disabled="!isDateSelected">
+        </div>
+        <b-button variant="primary" @click="onSubmit" :disabled="!isDateSelected">
           Book Now
         </b-button>
-      </footer>
+      </div>
     </template>
   </b-modal>
 </template>
@@ -42,23 +38,28 @@ export default {
       type: Object,
       required: true,
     },
-    onOkClick: {
-      type: Function,
-      required: true,
-    },
+  },
+  data() {
+    return {
+      selectedDate: '',
+      selectedTime: ''
+    }
   },
   computed: {
     isDateSelected() {
-      // const isSelected = !!(this.service.time ? this.selectedDate : this.selectedTime)
-      // this.setSelected(isSelected)
-      return false
+      return !!(this.service.time ? this.selectedTime : this.selectedDate)
     }
   },
   methods: {
     parseDate,
-    setSelectedData(data) {
-      console.log('setSelectedData', data)
+    onSubmit() {
+      this.$emit('onSubmit')
+    },
+    setSelectedDate(data) {
+      this.selectedDate = data.date
+      this.selectedTime = data.time
+      this.$emit('onSelect', data)
     }
-  }
+  },
 };
 </script>

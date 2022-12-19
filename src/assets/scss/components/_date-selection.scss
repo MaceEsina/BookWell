@@ -1,7 +1,7 @@
 .dates {
   @mixin selected {
     border-color: $dark-blue;
-    box-shadow: 0 0 0.4rem rgba(10,23,127,.5);
+    box-shadow: 0 0 0.8rem rgba(10,23,127,.3);
     background: white;
     color: $dark-blue;
     font-family: 'Lato-Bold';
@@ -33,6 +33,16 @@
     .datepicker {
       width: auto;
       border-color: #444;
+
+      label {
+        color: #444 !important;
+      }
+
+      &:hover {
+        label {
+          color: black !important;
+        }
+      }
     }
   }
   
@@ -54,7 +64,6 @@
       &.selected {
         @include selected;
         
-
         & .date {
           color: $dark-blue;
         }
