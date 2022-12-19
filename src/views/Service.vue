@@ -98,10 +98,10 @@
         <span v-if="selectedTime"> at {{selectedTime}}</span>
       </div>
       <b-button variant="secondary" @click="showDateModal">
-        Change time
+        Change Time
       </b-button>
       <b-button variant="primary" @click="showBookModal">
-        Book Now
+        Book
       </b-button>
     </footer>
 
@@ -114,7 +114,6 @@
       :bookDate="bookDate"
       @onSubmit="book"
       @onSelect="showDateModal"/>
-
   </div>
 </template>
 
@@ -132,15 +131,6 @@ export default {
     DatesModal
   },
   computed: {
-    minDate() {
-      const today = new Date()
-      return today.toISOString().split('T')[0]
-    },
-    maxDate() {
-      const today = new Date()
-      const nextDate = new Date(today.setMonth(today.getMonth() + 3))
-      return nextDate.toISOString().split('T')[0]
-    },
     user () {
       return this.$store.state.user
     },
@@ -153,15 +143,13 @@ export default {
       return this.$store.getters.getReviews(partnerId)
     },
     isDateSelected() {
-      return !!(this.service.time ? this.selectedTime : this.selectedDate)
+      return !!(this.selectedTime && this.selectedDate)
     },
     bookDate() {
-      let date = ''
       if (this.isDateSelected) {
-        date = parseDate(this.selectedDate)
-        if (this.selectedTime) date += ` at ${this.selectedTime}`
+        return `${parseDate(this.selectedDate)} at ${this.selectedTime}`
       }
-      return date
+      return ''
     }
   },
   data() {
@@ -192,7 +180,6 @@ export default {
     },
     book() {
       // TODO
-      console.log('book')
     },
     showDateModal() {
       this.$bvModal.show('date-modal')

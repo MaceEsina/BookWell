@@ -36,24 +36,41 @@
     </div>
     <ul class="cards">
       <li v-for="service in services" :key="`${service.id}_${service.partnerId}`">
-        <ServiceCard :service="service" />
+        <ServiceCard :service="service" @onBookClick="onBookClick(service)" />
       </li>
     </ul>
+    <DatesModal v-if="service"
+      :service="service"
+      @onSelect="setSelectedDate"
+      @onSubmit="showBookModal" />
+    <BookModal v-if="service"
+      :service="service"
+      :bookDate="bookDate"
+      @onSubmit="book"
+      @onSelect="showDateModal"/>
   </div>
 </template>
 
 <script>
 import ServiceCard from "@/components/ServiceCard"
+import BookModal from "@/components/modals/BookModal"
+import DatesModal from "@/components/modals/DatesModal"
+import { parseDate } from '@/helpers/dates'
 
 export default {
   name: "Home",
   components: {
-    ServiceCard
+    ServiceCard,
+    BookModal,
+    DatesModal
   },
   data() {
     return {
       search: '',
+      service: null,
       destination: '',
+      selectedDate: '',
+      selectedTime: ''
     }
   },
   computed: {
@@ -65,9 +82,22 @@ export default {
     },
     services() {
       return this.$store.getters.getAllServices
+    },
+    isDateSelected() {
+      if (!this.service) return false
+      return !!(this.service.time ? this.selectedTime : this.selectedDate)
+    },
+    bookDate() {
+      let date = ''
+      if (this.isDateSelected) {
+        date = parseDate(this.selectedDate)
+        if (this.selectedTime) date += ` at ${this.selectedTime}`
+      }
+      return date
     }
   },
   methods: {
+    parseDate,
     onSearch() {
       // TODO
     },
@@ -79,6 +109,23 @@ export default {
     },
     toggleLang() {
       this.$store.commit('changeLanguage')
+    },
+    setSelectedDate(data) {
+      this.selectedDate = data.date
+      this.selectedTime = data.time
+    },
+    showDateModal() {
+      this.$bvModal.show('date-modal')
+    },
+    showBookModal() {
+      this.$bvModal.show('book-modal')
+    },
+    onBookClick(service) {
+      this.service = service
+      setTimeout(this.showDateModal, 100)
+    },
+    book() {
+      // TODO
     }
   },
 };

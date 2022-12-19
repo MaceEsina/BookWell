@@ -1,34 +1,54 @@
 .book-modal {
   h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-family: 'Lato-Bold';
   }
 
   .date {
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #0a177f;
+    letter-spacing: 0.3px;
     font-family: 'Lato-Bold';
+
+    button {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.6px;
+    }
   }
 
-  .partner {
-    margin-top: 0.4rem;
+  .book-form {
+    margin-top: 1.2rem;
+
+    .form-group {
+      display: flex;
+      align-items: center;
+
+      > div {
+        width: 1000%;
+      }
+
+      label {
+        flex-shrink: 0;
+        width: 68px;
+        font-size: 1.2rem;
+        margin: 0 1rem 0 0;
+        font-family: 'Lato-Bold';
+      }
+    }
   }
 
   .footer {
     .price {
-      font-size: 18px;
+      font-size: 1.3rem;
       font-family: 'Lato-Bold';
       letter-spacing: 0.4px;
+      margin-right: 0.5rem;
     }
 
     button {
-      font-size: 1.1rem;
-      margin-left: 0.5rem;
-
-      &:first-of-type {
-        margin-left: auto;
-      }
+      @include modal-footer-btn;
     }
   }
 }

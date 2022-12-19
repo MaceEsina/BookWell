@@ -12,17 +12,26 @@ body {
   }
 
   .modal {
+    color: #333;
+
     .modal-header {
+      color: $dark-blue;
+  
       .close {
         font-size: 2rem;
       }
     }
+
     .modal-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     .modal-dialog {
       max-width: 440px;
+    }
+
+    .modal-footer {
+      flex-wrap: nowrap;
     }
   }
 

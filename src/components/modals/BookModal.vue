@@ -6,30 +6,18 @@
     id="book-modal"
     footer-class="footer"
     modal-class="book-modal"
-    @hide="onHide"
-    title="Request to book"
+    title="Request to Book"
   >
     <h2>{{ service.name }}</h2>
-    <div class="date">{{ bookDate }}</div>
-    <div class="location text-muted">
-      <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
-      <span class="city">{{ service.location.country }}</span>
-      <span class="mx-2">&#8226;</span>
-      <span class="city">{{ service.location.city }}</span>
-      <span class="mx-2">&#8226;</span>
-      <a :href="`http://maps.google.com/?q=1200 ${service.location.addr}`" target="_blank">
-        Show on Map
-      </a>
-    </div>
-    <div class="partner">
-      Organized by
-      <a :href="`/partner/${service.partnerId}`" target="_blank">
-        {{service.partnerName}}
-      </a>
+    <div class="date">
+      <span>{{ bookDate }}</span>
+      <b-button variant="secondary" @click="onSelect">
+        Change Time
+      </b-button>
     </div>
 
-    <b-form class="form">
-      <b-form-group label="Name" label-for="name">
+    <b-form class="book-form">
+      <b-form-group label="Name*" label-for="name">
         <b-form-input
           v-model="name"
           placeholder="Enter your name"
@@ -39,7 +27,7 @@
           required
         ></b-form-input>
       </b-form-group>
-      <b-form-group label="E-mail" label-for="email">
+      <b-form-group label="E-mail*" label-for="email">
         <b-form-input
           v-model="email"
           type="email"
@@ -50,6 +38,22 @@
           required
         ></b-form-input>
       </b-form-group>
+      <b-form-group label="Phone" label-for="phone">
+        <b-form-input
+          v-model="phone"
+          type="tel"
+          placeholder="Enter phone number"
+          size="lg"
+        ></b-form-input>
+      </b-form-group>
+      <b-form-textarea
+        id="textarea"
+        v-model="comment"
+        :placeholder="`Your message for ${service.partnerName}`"
+        rows="3"
+        size="lg"
+        no-resize
+      ></b-form-textarea>
     </b-form>
 
     <template #modal-footer>
@@ -58,9 +62,6 @@
         <span class="mx-2 text-primary">•</span>
         <span>{{service.duration}}</span>
       </div>
-      <b-button variant="secondary" @click="onSelect">
-        Change time
-      </b-button>
       <b-button variant="primary" @click="onSubmit" :disabled="isDisabled">
         Submit
       </b-button>
@@ -85,15 +86,16 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.user || {}
-    },
-    email() {
-      return this.user.email || ''
+      // TODO set email
+      return this.$store.state.user
     }
   },
   data() {
     return {
       name: '',
+      email: '',
+      phone: '',
+      comment: '',
       nameState: null,
       emailState: null,
       isDisabled: true
@@ -106,9 +108,6 @@ export default {
     },
     onSelect() {
       this.$emit('onSelect')
-    },
-    onHide() {
-      // TODO reset
     },
     isValid() {
       return this.name && this.email

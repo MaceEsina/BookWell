@@ -6,20 +6,19 @@
     id="date-modal"
     footer-class="footer"
     modal-class="date-modal"
-    :title="`Select date${service.time ? ' and time' : ''}`"
+    @hide="onHide"
+    title="Date and Time"
   >
-    <DateSelection :service="service" @onSelect="setSelectedDate" />
+    <h2>{{ service.name }}</h2>
+    <DateSelection :service="service" @onSelect="setSelectedDate" ref="select" />
 
     <template #modal-footer>
-      <div class="dates-footer">
-        <div class="date" v-if="isDateSelected">
-          {{parseDate(selectedDate)}}
-          <span v-if="selectedTime"> at {{selectedTime}}</span>
-        </div>
-        <b-button variant="primary" @click="onSubmit" :disabled="!isDateSelected">
-          Book Now
-        </b-button>
+      <div class="date" v-if="isDateSelected">
+        {{parseDate(selectedDate)}} at {{selectedTime}}
       </div>
+      <b-button variant="primary" @click="onSubmit" :disabled="!isDateSelected">
+        Book Now
+      </b-button>
     </template>
   </b-modal>
 </template>
@@ -59,6 +58,11 @@ export default {
       this.selectedDate = data.date
       this.selectedTime = data.time
       this.$emit('onSelect', data)
+    },
+    onHide() {
+      this.$refs.select.reset()
+      this.selectedTime = ''
+      this.selectedDate = ''
     }
   },
 };

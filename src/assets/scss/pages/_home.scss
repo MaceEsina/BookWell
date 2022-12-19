@@ -5,8 +5,8 @@
     @include header;
 
     h1 {
-      font-size: 26px;
-      font-weight: bold;
+      font-size: 1.9rem;
+      font-family: 'Lato-Bold';
       color: $dark-blue;
       margin: 0 auto;
     }
@@ -29,7 +29,8 @@
 
       span {
         font-size: 1.2rem;
-        color: #222;
+        color: #333;
+        font-family: 'Lato-Bold';
       }
     }
 
@@ -43,7 +44,7 @@
     width: 100%;
     display: block;
     font-size: 25px;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
   .search-bar {

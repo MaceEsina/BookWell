@@ -14,7 +14,7 @@
 
     .login-btn {
       @include login-btn;
-      margin-left: 1.5rem;
+      margin-left: 1rem;
     }
   }
 
@@ -27,20 +27,21 @@
     background: white;
     z-index: 999;
     padding: 0 2rem;
+    font-family: 'Lato-Bold';
   
     .date {
       flex-shrink: 0;
-      font-family: 'Lato-Bold';
       margin-right: auto;
     }
 
     button {
       height: 2.6rem;
-      font-size: 1.1rem;
-      letter-spacing: 0.4px;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      min-width: 90px;
 
       &:not(:first-of-type) {
-        margin-left: 0.8rem;
+        margin-left: 0.6rem;
       }
     }
   }

@@ -38,7 +38,7 @@
           <span>{{service.price}} THB</span>
           <span class="mx-2 text-primary">•</span>
           <span>{{service.duration}}</span>
-          <b-button class="book-btn" @click.stop="goToBook" variant="primary">
+          <b-button class="book-btn" @click.stop="onBookClick" variant="primary">
             Book Now
           </b-button>
         </div>
@@ -56,6 +56,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isFavorite: false,
+    }
+  },
   methods: {
     goToService() {
       this.$router.push({
@@ -66,19 +71,8 @@ export default {
         }
       })
     },
-    goToBook() {
-      this.$router.push({
-        name: "Book",
-        params: {
-          id: this.service.id,
-          partnerId: this.service.partnerId,
-        }
-      })
-    }
-  },
-  data() {
-    return {
-      isFavorite: false,
+    onBookClick() {
+      this.$emit('onBookClick')
     }
   }
 };

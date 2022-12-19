@@ -72,6 +72,15 @@
   }
 }
 
+@mixin modal-footer-btn {
+  width: 100%;
+  font-size: 1.2rem;
+  max-width: 160px;
+  margin-left: auto;
+  font-family: 'Lato-Bold';
+  letter-spacing: 0.5px;
+}
+
 @mixin login-btn {
   width: 80px;
   height: 2.4rem;
@@ -79,7 +88,7 @@
   color: #222;
   font-family: 'Lato-Bold';
   min-width: 80px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.6px;
 }
 
 @mixin search-bar {
