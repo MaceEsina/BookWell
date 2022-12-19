@@ -40,11 +40,6 @@ export default [
     component: () => import('@/views/Partner.vue')
   },
   {
-    path: '/book/:partnerId/:id?',
-    name: 'Book',
-    component: () => import('@/views/Book.vue')
-  },
-  {
     path: '/hotel/:id?',
     name: 'Hotel',
     component: () => import('@/views/Hotel.vue')
