@@ -112,7 +112,6 @@
     <BookModal
       :service="service"
       :bookDate="bookDate"
-      @onSubmit="book"
       @onSelect="showDateModal"/>
   </div>
 </template>
@@ -177,9 +176,6 @@ export default {
     setSelectedDate(data) {
       this.selectedDate = data.date
       this.selectedTime = data.time
-    },
-    book() {
-      // TODO
     },
     showDateModal() {
       this.$bvModal.show('date-modal')

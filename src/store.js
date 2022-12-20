@@ -50,9 +50,17 @@ export const store = new Vuex.Store({
     getAllServices(state) {
       const result = []
       state.partners.forEach(partner => {
-        const { services, id, location } = partner
+        const { services, id, location, email, phone, website, name } = partner
         services.forEach(service => {
-          result.push({...service, partnerId: id, location })
+          result.push({
+            ...service,
+            partnerId: id,
+            email,
+            phone,
+            website,
+            partnerName: name,
+            location
+          })
         })
       })
       return result

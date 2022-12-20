@@ -46,7 +46,6 @@
     <BookModal v-if="service"
       :service="service"
       :bookDate="bookDate"
-      @onSubmit="book"
       @onSelect="showDateModal"/>
   </div>
 </template>
@@ -74,10 +73,10 @@ export default {
     }
   },
   computed: {
-    user () {
+    user() {
       return this.$store.state.user
     },
-    lang () {
+    lang() {
       return this.$store.state.lang
     },
     services() {
@@ -124,9 +123,6 @@ export default {
       this.service = service
       setTimeout(this.showDateModal, 100)
     },
-    book() {
-      // TODO
-    }
   },
 };
 </script>
