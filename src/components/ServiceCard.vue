@@ -2,7 +2,7 @@
   <b-card no-body class="shadow" @click="goToService">
     <div class="image">
       <b-card-img
-        :src="require(`@/assets/img/${service.partnerId}/${service.img}`)"
+        :src="require(`@/assets/img/${partnerId}/${service.img}`)"
       ></b-card-img>
       <button :class="`${isFavorite ? 'liked' : ''} like-btn`" @click.stop="isFavorite = !isFavorite">
         <i :class="`${isFavorite ? 'fas' : 'far'} fa-heart`"></i>
@@ -22,11 +22,11 @@
         </div>
         <div class="location text-muted">
           <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
-          <span class="city">{{ service.location.country }}</span>
+          <span class="city">{{ location.country }}</span>
           <span class="mx-2">&#8226;</span>
-          <span class="city">{{ service.location.city }}</span>
+          <span class="city">{{ location.city }}</span>
           <span class="mx-2">&#8226;</span>
-          <a :href="`http://maps.google.com/?q=1200 ${service.location.addr}`" @click.stop target="_blank">
+          <a :href="`http://maps.google.com/?q=1200 ${location.addr}`" @click.stop target="_blank">
             Show on Map
           </a>
         </div>
@@ -54,11 +54,17 @@ export default {
     service: {
       type: Object,
       required: true
+    },
+    partner: {
+      type: Object,
+      required: false
     }
   },
   data() {
     return {
       isFavorite: false,
+      partnerId: this.partner ? this.partner.id : this.service.partnerId,
+      location: this.partner ? this.partner.location : this.service.location
     }
   },
   methods: {
@@ -67,7 +73,7 @@ export default {
         name: "Service",
         params: {
           id: this.service.id,
-          partnerId: this.service.partnerId,
+          partnerId: this.partnerId,
         }
       })
     },

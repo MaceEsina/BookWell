@@ -86,7 +86,7 @@
 
   <b-modal
     id="booked-modal"
-    title="Your Booking"
+    title="Booking Confirmed"
     modal-class="booked-modal"
     centered
     no-stacking
@@ -94,25 +94,21 @@
     footer-class="book-footer"
   >
     <h2>{{ service.name }}</h2>
+    <div class="location text-muted">
+        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
+        <span class="city">{{ location.country }}</span>
+        <span class="mx-2">&#8226;</span>
+        <span class="city">{{ location.city }}</span>
+        <span class="mx-2">&#8226;</span>
+        <a :href="`http://maps.google.com/?q=1200 ${location.addr}`" target="_blank">
+          Show on Map
+        </a>
+    </div>
     <div class="book-row">Booking Date: <span>{{ bookDate }}</span></div>
     <div class="book-row">Booking Code: <span>{{ code }}</span></div>
     <p>
       You can cancel your booking anytime by the link that we sent you on e-mail <b>{{ this.email.trim() }}</b> or by booking code in the app.
-      Enjoy your time with
-      <a :href="`/partner/${service.partnerId}`" target="_blank">
-        {{service.partnerName}}
-      </a>
     </p>
-    <div class="location text-muted">
-        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
-        <span class="city">{{ service.location.country }}</span>
-        <span class="mx-2">&#8226;</span>
-        <span class="city">{{ service.location.city }}</span>
-        <span class="mx-2">&#8226;</span>
-        <a :href="`http://maps.google.com/?q=1200 ${service.location.addr}`" target="_blank">
-          Show on Map
-        </a>
-    </div>
     <template #modal-footer>
       <div class="price">
         <span>{{service.price}} THB</span>
@@ -133,7 +129,7 @@ import { parseDate } from '@/helpers/dates'
 import { validEmail, validPhone } from '@/helpers/validation-rules'
 
 export default {
-  name: "DatesModal",
+  name: "BookModal",
   props: {
     service: {
       type: Object,
@@ -142,7 +138,11 @@ export default {
     bookDate: {
       type: String,
       required: true,     
-    }
+    },
+    location: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     user() {
@@ -223,6 +223,6 @@ export default {
         this.email = this.user.email || ''
       }
     }
-  },
+  }
 }
 </script>

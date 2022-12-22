@@ -11,7 +11,8 @@ export const store = new Vuex.Store({
     return {
       lang: 'eng',
       user: null,
-      partners
+      partners,
+      isLoading: true
     }
   },
   mutations: {
@@ -21,11 +22,19 @@ export const store = new Vuex.Store({
     setUser(state, user) {
       state.user = user
     },
+    setLoading(state, isLoading) {
+      state.isLoading = isLoading
+    },
   },
   getters: {
     getReviews: (state) => (partnerId) => {
       const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
       if (partner) return partner.reviews
+      return []
+    },
+    getPartner: (state) => (partnerId) => {
+      const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
+      return partner
     },
     getService: (state) => (serviceId, partnerId) => {
       const partner = state.partners.find(item => fixStr(partnerId) === fixStr(item.id))
