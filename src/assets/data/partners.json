@@ -11,6 +11,9 @@
     "email": "santhiya@gmail.com",
     "website": "https://www.santhiya.com/kohphangan-2/spa/",
     "tags": ["massage", "spa", "aromatherapy"],
+    "rating": 4.5,
+    "desc": "Welcome to Ayurvana Spa, a total escape into luxurious serenity. Let the sounds of breezy island winds and pure tropical waters sooth your every being from head to toe.",
+    "img": "2.jpg",
     "services": [
       {
         "name": "Oil Massage",
@@ -30,7 +33,7 @@
         "id": 2,
         "duration": "60 min",
         "tags": ["massage"],
-        "img": "2.jpg",
+        "img": "4.jpg",
         "rating": 5,
         "time": ["9:00", "11:00", "13:00", "15:00", "17:00", "19:00"],
         "dates": ["2022-12-28", "2022-12-29", "2022-12-30", "2022-12-31", "2023-01-01", "2023-01-02", "2023-01-03"],
@@ -48,9 +51,6 @@
         "desc": "Aromatherapy massage combines the power of essential oils with massage therapy, benefitting both the mind and the body."
       }
     ],
-    "rating": 4.5,
-    "desc": "Welcome to Ayurvana Spa, a total escape into luxurious serenity. Let the sounds of breezy island winds and pure tropical waters sooth your every being from head to toe.",
-    "img": ["1.jpg", "2.jpg", "3.jpg"],
     "reviews": [
       {
         "rating": 5,
@@ -136,7 +136,7 @@
     ],
     "rating": 5,
     "desc": "We are an International School of Awakening and Healing with our main school in Koh Phangan, Thailand. We provide a mindfulness community, for people who want to live a happier, more fulfilled and wholesome life, based on principles of self-development, acceptance and celebration.",
-    "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+    "img": "2.jpg",
     "reviews": [
       {
         "rating": 5,
@@ -228,7 +228,7 @@
     ],
     "rating": 5,
     "desc": "Orion is a sanctuary, located in the Gulf of Thailand, Koh Phangan - one of Thailand’s most beautiful islands! With its white-sand beaches and crystal waters, the island is an ideal destination for a trip focused on nourishing mind, body and spirit. for those seeking to re-connect and transform themselves and their lives.",
-    "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+    "img": "6.jpg",
     "reviews": [
       {
         "rating": 5,
@@ -309,7 +309,7 @@
     ],
     "rating": 5,
     "desc": "Sound healing center in the heart of island Koh Phangan. Gong meditation, singing bowls, yoga classes.",
-    "img": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+    "img": "1.jpg",
     "reviews": [
       {
         "rating": 5,
@@ -371,7 +371,7 @@
     ],
     "rating": 5,
     "desc": "Indriya Retreat is a new donation-based Dhamma and Meditation Centre established to take the opportunities of practising vipassana meditation to international travellers. We are located in the jungle off ‘Coconut Lane’, near the village of Srithanu on the island of Koh Phangan. Situated along a small stream and nestled amongst established fruit trees and tropical plants, the 2.5-acre (one hectare) site is secluded and peaceful. The meditation centre serves spiritual seekers arriving on the island in search of the Buddha’s Teaching. The residential retreats are conducted in English and Russian. Everyone is welcome to experience the Buddha’s Teaching.",
-    "img": ["1.jpg", "2.jpg"],
+    "img": "3.jpg",
     "reviews": [
       {
         "rating": 5,
