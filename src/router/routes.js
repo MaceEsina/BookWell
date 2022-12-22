@@ -30,6 +30,16 @@ export default [
     component: () => import('@/views/User.vue')
   },
   {
+    path: '/favorites',
+    name: 'Favorites',
+    component: () => import('@/views/Favorites.vue')
+  },
+  {
+    path: '/bookings',
+    name: 'Bookings',
+    component: () => import('@/views/Bookings.vue')
+  },
+  {
     path: '/service/:partnerId/:id?',
     name: 'Service',
     component: () => import('@/views/Service.vue')

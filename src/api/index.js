@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DEPLOY_ID = 'AKfycbyyL589i96ecvKR0xn9fm1tGIvWAdu-qEUsonnH1mKv2e-WrtYbz-Hiy5vvZTi90567EA'
+const DEPLOY_ID = 'AKfycbx8EG235UkY6b3b99NQJuu6-OuIM4Z40OToGcBRBH3AMlL92avWDmYIUs2n1B4GH-DzPQ'
 const API_URL = `https://script.google.com/macros/s/${DEPLOY_ID}/exec`
 
 export const getStart = (params) => (
@@ -17,4 +17,7 @@ export const resetPassword = (params) => (
 )
 export const book = (params) => (
   axios.get(`${API_URL}?method=book`, { params })
+)
+export const getBookings = (params) => (
+  axios.get(`${API_URL}?method=bookings`, { params })
 )

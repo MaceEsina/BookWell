@@ -180,7 +180,7 @@ export default {
       this.$router.push({ name: "SignIn" })
     },
     goBack() {
-      this.$router.push({ name: "Home" })
+      this.$router.go(-1)
     },
     setSelectedDate(data) {
       this.selectedDate = data.date

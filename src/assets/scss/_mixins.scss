@@ -172,12 +172,11 @@
 
 @mixin image {
   position: relative;
-  max-height: 260px;
+  max-height: 240px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
   flex-shrink: 0;
   width: 100%;
 
