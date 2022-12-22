@@ -54,7 +54,6 @@
 
   p {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
   }
 
   .book-row {
@@ -62,10 +61,11 @@
     margin: 1rem 0;
     font-size: 1.2rem;
     align-items: baseline;
+    font-family: 'Lato-Bold';
 
     span {
-      font-family: 'Lato-Bold';
       margin-left: 0.5rem;
+      color: $dark-blue;
     }
   }
 }

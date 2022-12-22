@@ -6,6 +6,44 @@
   padding: 0 1.5rem;
   max-width: $app-width;
   margin: $header-hight auto 1rem;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .contacts {
+    @include contacts;
+  }
+
+  .image {
+    @include image;
+  }
+
+  .info,
+  .reviews-list {
+    width: 100%;
+    padding: 0 0.3rem;
+  }
+
+  .review {
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .description {
+    width: 100%;
+    font-size: 1.2rem;
+
+    ul {
+      margin-bottom: 0.7rem;
+    }
+  }
 }
 
 @mixin header {
@@ -32,16 +70,45 @@
     z-index: 1;
   }
 
-  .user {
-    width: 80px;
-    height: 60px;
-    padding: 0.5rem 0;
-    font-size: 24px;
+  h1 {
+    font-size: 1.9rem;
+    font-family: 'Lato-Bold';
     color: $dark-blue;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .lang {
+    height: 40px;
+    margin-left: -1rem;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: none;
+
+    img {
+      width: auto;
+      height: 100%;
+      border-radius: 4px;
+      box-shadow: 0 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    span {
+      display: none;
+    }
+
+    @media screen and (min-width: $small-width) {
+      span {
+        display: block;
+        margin-left: 0.5rem;
+        font-size: 1.2rem;
+        color: #333;
+        font-family: 'Lato-Bold';
+      }
+    }
   }
 
   .goBack {
@@ -50,8 +117,15 @@
     color: #333;
     padding: 1rem;
     margin-left: -0.5rem;
-    margin-right: 1rem;
     min-width: 56px;
+  }
+
+  .search-bar {
+    @include search-bar;
+  }
+
+  .login-btn {
+    @include login-btn;
   }
 }
 
@@ -60,6 +134,14 @@
   align-items: center;
   width: 100%;
   font-size: 1.2rem;
+  position: fixed;
+  bottom: 0;
+  max-width: $app-width;
+  height: $header-hight;
+  background: white;
+  z-index: 999;
+  padding: 0 2rem;
+  font-family: 'Lato-Bold';
 
   &:after {
     content: "";
@@ -69,6 +151,74 @@
     right: -100rem;
     border-top: 1px solid #ccc;
     z-index: 1;
+  }
+
+  .date {
+    flex-shrink: 0;
+    margin-right: auto;
+  }
+
+  button {
+    height: 2.6rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    min-width: 90px;
+
+    &:not(:first-of-type) {
+      margin-left: 0.6rem;
+    }
+  }
+}
+
+@mixin image {
+  position: relative;
+  max-height: 260px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+@mixin contacts {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: #444;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    &.website {
+      margin-bottom: 0;
+
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+
+    i {
+      margin-right: 0.6rem;
+    }
   }
 }
 
@@ -92,16 +242,22 @@
 }
 
 @mixin search-bar {
-  margin: 1rem 0;
+  margin: 0.5rem 1rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  height: 40px;
   justify-content: center;
+
+  input {
+    height: 100%;
+    font-size: 1.1rem;
+  }
 
   button {
     background-color: $main-blue;
     color: white;
-    width: 3rem;
+    width: 2.8rem;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 
