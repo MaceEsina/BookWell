@@ -1,0 +1,38 @@
+.user-btn {
+  width: 50px;
+  height: 50px;
+  margin-right: -0.3rem;
+  margin-left: 0.5rem;
+
+  &.show {
+    .dropdown-toggle {
+      color: $dark-blue !important;
+    }
+  }
+
+  .dropdown-toggle {
+    color: #333 !important;
+    font-size: 1.5rem;
+    background: none !important;
+    border: none;
+
+    &:hover {
+      color: $dark-blue;
+      background: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    min-width: 1rem;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.2rem;
+  }
+}

@@ -14,9 +14,7 @@
         </b-input-group-append>
       </b-input-group>
 
-      <button v-if="user" class="user" @click="goUser">
-        <i class="far fa-user" />
-      </button>
+      <UserButton v-if="user" />
       <b-button variant="secondary" class="login-btn" v-else @click="signIn">
         Login
       </b-button>
@@ -61,7 +59,7 @@
         <p>{{service.desc}}</p>
         <div class="partner">
           Organized by
-          <a :href="`/partner/${service.partnerId}`" target="_blank">
+          <a href="#" @click.prevent="goPartner">
             {{service.partnerName}}
           </a>
         </div>
@@ -112,11 +110,13 @@
     <BookModal
       :service="service"
       :bookDate="bookDate"
+      :location="service.location"
       @onSelect="showDateModal"/>
   </div>
 </template>
 
 <script>
+import UserButton from "@/components/UserButton"
 import ReviewCard from "@/components/ReviewCard"
 import BookModal from "@/components/modals/BookModal"
 import DatesModal from "@/components/modals/DatesModal"
@@ -125,6 +125,7 @@ import { parseDate } from '@/helpers/dates'
 export default {
   name: "Service",
   components: {
+    UserButton,
     ReviewCard,
     BookModal,
     DatesModal
@@ -166,6 +167,14 @@ export default {
     },
     getPageClasses() {
       return (this.isDateSelected ? 'selected ' : '') + 'service-page'
+    },
+    goPartner() {
+      this.$router.push({
+        name: "Partner",
+        params: {
+          id: this.service.partnerId
+        }
+      })
     },
     signIn() {
       this.$router.push({ name: "SignIn" })

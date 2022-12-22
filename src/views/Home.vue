@@ -8,9 +8,7 @@
         <span v-else>Thai</span>
       </div>
       <h1>BookWell</h1>
-      <button v-if="user" class="user" @click="goUser">
-        <i class="far fa-user" />
-      </button>
+      <UserButton v-if="user" />
       <b-button variant="secondary" class="login-btn" v-else @click="signIn">
         Login
       </b-button>
@@ -45,12 +43,14 @@
       @onSubmit="showBookModal" />
     <BookModal v-if="service"
       :service="service"
+      :location="service.location"
       :bookDate="bookDate"
       @onSelect="showDateModal"/>
   </div>
 </template>
 
 <script>
+import UserButton from "@/components/UserButton"
 import ServiceCard from "@/components/ServiceCard"
 import BookModal from "@/components/modals/BookModal"
 import DatesModal from "@/components/modals/DatesModal"
@@ -59,6 +59,7 @@ import { parseDate } from '@/helpers/dates'
 export default {
   name: "Home",
   components: {
+    UserButton,
     ServiceCard,
     BookModal,
     DatesModal
@@ -67,7 +68,6 @@ export default {
     return {
       search: '',
       service: null,
-      destination: '',
       selectedDate: '',
       selectedTime: ''
     }
@@ -102,9 +102,6 @@ export default {
     },
     signIn() {
       this.$router.push({ name: "SignIn" })
-    },
-    goUser() {
-      this.$router.push({ name: "User" })
     },
     toggleLang() {
       this.$store.commit('changeLanguage')
