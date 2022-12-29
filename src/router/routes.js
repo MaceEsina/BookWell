@@ -1,6 +1,11 @@
 export default [
   {
     path: '/',
+    name: 'App',
+    component: () => import('@/App.vue')
+  },
+  {
+    path: '/start',
     name: 'Start',
     component: () => import('@/views/Start.vue')
   },

@@ -14,16 +14,11 @@
     </div>
     <b-row no-gutters>
       <b-card-body class="d-flex flex-column h-100">
-        <div class="d-flex justify-content-between align-items-center">
-          <h4>{{ service.name }}</h4>
-        </div>
+        <h2>{{ service.name }}</h2>
         <div class="book-row">Booking Date: <span>{{ booking.date }}</span></div>
         <div class="book-row">Booking Code: <span>{{ booking.code }}</span></div>
-        <div class="book-info">
-          <h2>Your Book Info</h2>
-          <div>Name: <span>{{ booking.name }}</span></div>
-          <div>Phone: <span>{{ booking.phone }}</span></div>
-        </div>
+        <div class="book-row">Your Name: <span>{{ booking.name }}</span></div>
+        <div class="book-row">Your Phone: <span>{{ booking.phone }}</span></div>
         <div class="partner">
           Organized by
           <a href="#" @click.prevent="goToPartner">
@@ -42,9 +37,11 @@
         </div>
         <hr class="w-100">
         <div class="footer">
-          <span>{{service.price}} THB</span>
-          <span class="mx-2 text-primary">•</span>
-          <span>{{service.duration}}</span>
+          <div class="price">
+            <span>{{service.price}} THB</span>
+            <span class="mx-2 text-primary">•</span>
+            <span>{{service.duration}}</span>
+          </div>
           <b-button class="book-btn" @click.stop="onCancelClick" variant="primary">
             Cancel Booking
           </b-button>

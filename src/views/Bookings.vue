@@ -1,13 +1,12 @@
 <template>
-  <div class="bookings-page">
+  <div class="bookings-page" v-if="bookings">
     <header class="header">
       <button class="goBack" @click="goBack">
         <i class="fa fa-arrow-left"></i>
       </button>
-      <h1>BookWell</h1>
+      <h1 @click="goHome">BookWell</h1>
       <UserButton v-if="user" />
     </header>
-    <h1>Your Bookings</h1>
     <ul class="cards" v-if="bookings">
       <li v-for="booking in bookings" :key="booking.id">
         <BookCard
@@ -31,19 +30,22 @@ export default {
   },
   data() {
     return {
-      bookings: null,
+      bookings: null
     }
   },
   computed: {
     user() {
       return this.$store.state.user
     },
-    lang() {
-      return this.$store.state.lang
-    },
     services() {
       return this.$store.getters.getAllServices
     },
+  },
+  watch: {
+    user: function(user) {
+      if (user) this.getBookings()
+      else this.signIn()
+    }
   },
   methods: {
     goBack() {
@@ -52,11 +54,15 @@ export default {
     signIn() {
       this.$router.push({ name: "SignIn" })
     },
+    goHome() {
+      this.$router.push({ name: "Home" })
+    },
     getBookings() {
       const params = {
         id: this.user.id,
         email: this.user.email
       }
+      this.$store.commit('setLoading', true)
       getBookings(params)
       .then(({ data }) => {
         if (data.bookings) {
@@ -69,6 +75,7 @@ export default {
               bookings.push({ ...booking, service })
             }
           })
+          this.$store.commit('setLoading', false)
           this.bookings = bookings
         }
       })
@@ -80,7 +87,6 @@ export default {
   },
   created() {
     if (this.user) this.getBookings()
-    else this.signIn()
   }
 };
 </script>

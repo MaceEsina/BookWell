@@ -9,7 +9,7 @@
 
   h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 
   h2 {
@@ -245,12 +245,11 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  height: 40px;
   justify-content: center;
 
   input {
     height: 100%;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   button {

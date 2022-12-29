@@ -3,6 +3,10 @@
 
   .header {
     @include header;
+
+    h1 {
+      cursor: pointer;
+    }
   }
 
   .reviews-list {

@@ -4,7 +4,7 @@
       <button class="goBack" @click="goBack">
         <i class="fa fa-arrow-left"></i>
       </button>
-      <h1>BookWell</h1>
+      <h1 @click="goHome">BookWell</h1>
       <UserButton v-if="user" />
       <b-button variant="secondary" class="login-btn" v-else @click="signIn">
         Login
@@ -139,6 +139,9 @@ export default {
     parseDate,
     goBack() {
       this.$router.go(-1)
+    },
+    goHome() {
+      this.$router.push({ name: "Home" })
     },
     signIn() {
       this.$router.push({ name: "SignIn" })
