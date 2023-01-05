@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import { getBookings } from '@/api'
+import { getBookings, cancelBooking } from '@/api'
+import { toStr, fixStr } from '@/helpers/strings'
 import UserButton from "@/components/UserButton"
 import BookCard from "@/components/BookCard"
 
@@ -81,8 +82,20 @@ export default {
       })
       .catch(error => console.log('ERROR', error))
     },
-    onCancelClick() {
-      // TODO
+    onCancelClick(booking) {
+      this.$store.commit('setLoading', true)
+      cancelBooking(booking)
+      .then(({ data }) => {
+        if (data.success) {
+          const id = toStr(booking.id)
+          const code = fixStr(booking.code)
+          this.bookings = this.bookings.filter(value => {
+            return toStr(value.id) !== id && fixStr(value.code) !== code
+          })
+          this.$store.commit('setLoading', false)
+        }
+      })
+      .catch(error => console.log('ERROR', error))
     }
   },
   created() {
